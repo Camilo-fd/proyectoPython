@@ -8,6 +8,7 @@ def menu():
     print("Sistema de almacenamiento de datos para campus")
     print("\t1. Camper")
     print("\t2. Trainer")
+    print("\t3. Reportes")
     print("\t0. Salir")
 bandera = True
 while (bandera):
@@ -21,7 +22,6 @@ while (bandera):
                 system("clear")
                 camper.menu()
             system("clear")
-            bandera = False
         case 2:
             with open("programa/datosJson/trainer.json", "r") as f:
                 trainer.trainer = json.loads(f.read())
@@ -29,6 +29,7 @@ while (bandera):
                 system("clear")
                 trainer.menu()
             system("clear")
+        case 3:
             bandera = False
         case 0:
             bandera = False

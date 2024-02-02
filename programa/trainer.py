@@ -5,9 +5,8 @@ from .valido import menuNoValid
 
 def save():
     info = {
-        "Nombre": input("Ingrese el nombre del trainer: "),
-        "Apellido": input("Ingrese el apellido: "),
-        "Edad": int(input("Ingrese la edad: ")),
+        "N_identificacion": input("Ingrese el numero de identificacion: "),
+        "Nombre_completo": input("Ingrese el nombre completo: ")
     }
     trainer.append(info)
     with open("programa/datosJson/trainer.json", "w") as f:
