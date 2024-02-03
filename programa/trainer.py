@@ -3,10 +3,10 @@ from os import system
 from .datos import trainer
 from .valido import menuNoValid
 
-def save():
+def guardar():
     info = {
-        "N_identificacion": input("Ingrese el numero de identificacion: "),
-        "Nombre_completo": input("Ingrese el nombre completo: ")
+        "Nro Identificacion": input("Ingrese el numero de identificacion: "),
+        "Nombre completo": input("Ingrese el nombre completo: ")
     }
     trainer.append(info)
     with open("programa/datosJson/trainer.json", "w") as f:
@@ -14,6 +14,23 @@ def save():
         f.write(data)
         f.close()
     return "Succesfully Trainer"
+
+def buscar():
+    system("clear")
+    print(f"""
+    *******************
+    *  Lista Trainer  *
+    *******************
+    """)
+    for i,val in enumerate(trainer):
+        print(f"""
+    ____________________________
+    Codigo: {i}
+    Nro Identificacion: {val.get('Nro Identificacion')}
+    Nombre completo: {val.get('Nombre completo')}
+    ____________________________
+        """)
+    return "El camper esta disponible"
 
 def menu():
     bandera = True
@@ -25,10 +42,11 @@ def menu():
         opc = int(input())
         match(opc):
             case 1:
-                save()
-            # case 2:
-            #     system("clear")
-            #     search()
+                system("clear")
+                guardar()
+            case 2:
+                system("clear")
+                buscar()
             case 0:
                 system("clear")
                 bandera = False

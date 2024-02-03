@@ -5,7 +5,12 @@ import programa.trainer as trainer
 from programa.valido import menuNoValid
 
 def menu():
-    print("Sistema de almacenamiento de datos para campus")
+    print("""
+        ************************
+        * Menu Adiministracion *
+        ************************
+        """)
+    print("Sistema de almacenamiento de dato")
     print("\t1. Camper")
     print("\t2. Trainer")
     print("\t3. Reportes")
