@@ -25,18 +25,28 @@ def guardar():
 
         ],
         # "Acudiente": input("Ingrese su acudiente: "),
-        "Verificacion": [],
+        "Acudiente": [],
         "Estado": "Pre inscrito"
     }
 
     edad = int(input("Ingrese la edad del camper: "))
     if edad < 16:
-        print("No tienes la edad suficiente")
+        system("clear")
+        return print('''
+                     No tienes la edad suficiente
+                     ''')
+    elif edad > 28:
+        system("clear")
+        return print('''
+                     Excedes el limite de edad
+                     ''')
+    elif edad >=18:
+        exit
     elif 16 <= edad < 18:
-        info["Acudiente"] = input("Ingrese su acudiente: ")
-        info["Verificacion"].append({
-            "Edad": edad,
-            "Acudiente": info["Acudiente"]
+        info["Responsable"] = input("Ingrese su acudiente: ")
+        info["Acudiente"].append({
+            # "Edad": edad,
+            "Responsable": info["Responsable"]
         })
 
     camper.append(info)
@@ -90,18 +100,21 @@ def editar():
 
             for x in range(int(input("Ingrese la cantidad de telefonos: ")))
         ],
-        "Verificacion": [],
+        "Acudiente": [],
         "Estado": input("")
     }
-            edad = int(input("Ingrese la edad del camper: "))
-            if edad < 16:
-                    print("No tienes la edad suficiente")
-            elif 16 <= edad < 18:
-                    info["Acudiente"] = input("Ingrese su acudiente: ")
-                    info["Verificacion"].append({
-                        "Edad": edad,
-                        "Acudiente": info["Acudiente"]
-                    })
+        edad = int(input("Ingrese la edad del camper: "))
+        if edad < 16:
+            print("No tienes la edad suficiente")
+            exit
+        elif edad >=18:
+            exit
+        elif 16 <= edad < 18:
+            info["Responsable"] = input("Ingrese su acudiente: ")
+            info["Acudiente"].append({
+                # "Edad": edad,
+                "Responsable": info["Responsable"]
+            })
             camper[codigo] = info
             with open("programa/datosJson/camper.json", "w") as f:
                     data = json.dumps(camper, indent=4)
@@ -140,7 +153,7 @@ def buscar():
     Nombre: {val.get('Nombre')}
     Apellido: {val.get('Apellido')}
     Direccion: {val.get('Direccion')}
-    Telefonos: {'Telefonos'}
+    Telefonos: {telefonos}
     Verificacion: {val.get('Verificacion')}
     Estado: {val.get('Estado')}
     ____________________________
@@ -214,7 +227,11 @@ def menu():
         print("\t3. Buscar Camper")
         print("\t4. Eliminar Camper")
         print("\t0. Salir")
-        opc = int(input())
+        try:
+            opc = int(input())
+        except ValueError:
+            system("clear")
+            continue
         match(opc):
             case 1:
                 system("clear")

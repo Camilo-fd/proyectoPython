@@ -1,1 +1,28 @@
-[]
+[
+    {
+        "Nro Identificacion": 16,
+        "Nombre": "jfg",
+        "Apellido": "dyhr",
+        "Direccion": "gege",
+        "Telefonos": [
+            {
+                "Fijo": 23
+            }
+        ],
+        "Acudiente": [],
+        "Estado": "Pre inscrito"
+    },
+    {
+        "Nro Identificacion": 1,
+        "Nombre": "c",
+        "Apellido": "v",
+        "Direccion": "b",
+        "Telefonos": [
+            {
+                "Fijo": 2
+            }
+        ],
+        "Acudiente": [],
+        "Estado": "Pre inscrito"
+    }
+]

@@ -4,6 +4,7 @@ import programa.camper as camper
 import programa.trainer as trainer
 from programa.valido import menuNoValid
 import programa.notas as notas
+import programa.ruta as ruta
 
 def menu():
     print("""
@@ -15,11 +16,16 @@ def menu():
     print("\t1. Camper")
     print("\t2. Trainer")
     print("\t3. Notas")
+    print("\t4. Rutas")
     print("\t0. Salir")
 bandera = True
 while (bandera):
     menu()
-    opc = int(input())
+    try:
+        opc = int(input())
+    except ValueError:
+        system("clear")
+        continue
     match(opc):
         case 1:
             with open("programa/datosJson/camper.json", "r") as f:
@@ -40,7 +46,13 @@ while (bandera):
                 camper.camper = json.loads(f.read())
                 f.close()
                 system("clear")
-                notas.note()
+                notas.menu()
+        case 4:
+            with open("programa/datosJson/ruta.json", "r") as f:
+                ruta.ruta = json.loads(f.read())
+                f.close()
+                system("clear")
+                ruta.menu()
         case 0:
             bandera = False
         case _:

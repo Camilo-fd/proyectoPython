@@ -39,7 +39,11 @@ def menu():
         print("\t1. Guardar Trainer")
         print("\t2. Buscar Trainer")
         print("\t0. Atras")
-        opc = int(input())
+        try:
+            opc = int(input())
+        except ValueError:
+            system("clear")
+            continue
         match(opc):
             case 1:
                 system("clear")
