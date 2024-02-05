@@ -3,6 +3,7 @@ from os import system
 import programa.camper as camper 
 import programa.trainer as trainer
 from programa.valido import menuNoValid
+import programa.notas as notas
 
 def menu():
     print("""
@@ -13,7 +14,7 @@ def menu():
     print("Sistema de almacenamiento de dato")
     print("\t1. Camper")
     print("\t2. Trainer")
-    print("\t3. Reportes")
+    print("\t3. Notas")
     print("\t0. Salir")
 bandera = True
 while (bandera):
@@ -35,7 +36,11 @@ while (bandera):
                 trainer.menu()
             system("clear")
         case 3:
-            bandera = False
+            with open("programa/datosJson/camper.json", "r") as f:
+                camper.camper = json.loads(f.read())
+                f.close()
+                system("clear")
+                notas.note()
         case 0:
             bandera = False
         case _:

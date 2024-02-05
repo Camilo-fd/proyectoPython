@@ -4,6 +4,12 @@ from .datos import camper
 from .valido import menuNoValid
 
 def guardar():
+    print(f"""
+    *********************
+    *  Ingresar Camper  *
+    *********************
+    """)
+
     info = {
         "Nro Identificacion": int(input("Ingrese su numero de identificacion: ")),
         "Nombre": input("Ingrese el nombre del camper: "),
@@ -11,32 +17,46 @@ def guardar():
         "Direccion": input("Ingrese la direccion del camper: "),
         "Telefonos": [
             {
-            f"{'Fijo' if(int(input('\t.1 fijo\t2. Celular: '))) else 'Celular'}":
+            f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
             int(input(f'Numero de contactto {x+1}: '))
         }
 
         for x in range(int(input("Ingrese la cantidad de telefonos que tiene: ")))
 
         ],
-        "Acudiente": input("Ingrese su acudiente: "),
+        # "Acudiente": input("Ingrese su acudiente: "),
+        "Verificacion": [],
         "Estado": "Pre inscrito"
     }
+
+    edad = int(input("Ingrese la edad del camper: "))
+    if edad < 16:
+        print("No tienes la edad suficiente")
+    elif 16 <= edad < 18:
+        info["Acudiente"] = input("Ingrese su acudiente: ")
+        info["Verificacion"].append({
+            "Edad": edad,
+            "Acudiente": info["Acudiente"]
+        })
+
     camper.append(info)
     with open("programa/datosJson/camper.json", "w") as f:
         data = json.dumps(camper, indent=4)
         f.write(data)
         f.close()
         system("clear")
-    return "Succesfully Camper"
+    print("                               ")
+    print("Camper registrado correctamente")
+    print("                               ")
 
 def editar():
     bandera=True
     while (bandera):
         system("clear")
         print("""
-        ***********************
-        * Acualizacion Camper *
-        ***********************
+        *****************
+        * Editar Camper *
+        *****************
         """)
         codigo = int(input("Ingrese el codigo del camper: "))
         print(f"""
@@ -47,6 +67,8 @@ def editar():
     Apellido: {camper[codigo].get('Apellido')}
     Direccion: {camper[codigo].get('Direccion')}
     Telefonos: {camper[codigo].get('Telefonos')}
+    Verificacion: {camper[codigo].get('Verificacion')}
+    Estado: {camper[codigo].get('Estado')}
     ________________________
         """)
         print("¿Este es el camper que deseas actualizar?")
@@ -62,21 +84,29 @@ def editar():
         "Direccion": input("Ingrese la direccion del camper: "),
         "Telefonos": [
             {
-                #Hay error al concatenar el x+1, !SOLUCIONARLO!
-                f"{'Fijo' if(int(input('1. fijo 2. Celular: '))) else 'Celular'}":
+                f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
                 int(input(f'Numero de contacto {x+1}: '))
             }
 
             for x in range(int(input("Ingrese la cantidad de telefonos: ")))
         ],
-        "Acudiente": input("Ingrese su acudiente: "),
-        "Estado": "Pre inscrito"
+        "Verificacion": [],
+        "Estado": input("")
     }
+            edad = int(input("Ingrese la edad del camper: "))
+            if edad < 16:
+                    print("No tienes la edad suficiente")
+            elif 16 <= edad < 18:
+                    info["Acudiente"] = input("Ingrese su acudiente: ")
+                    info["Verificacion"].append({
+                        "Edad": edad,
+                        "Acudiente": info["Acudiente"]
+                    })
             camper[codigo] = info
             with open("programa/datosJson/camper.json", "w") as f:
-                data = json.dumps(camper, indent=4)
-                f.write(data)
-                f.close()
+                    data = json.dumps(camper, indent=4)
+                    f.write(data)
+                    f.close()
             bandera = False
             system("clear")
 
@@ -87,20 +117,32 @@ def editar():
 
 def buscar():
     system("clear")
+    numr = 0
+    numr = int(input("Escribe tu numero de registro: "))
     print(f"""
     *******************
-    *  Lista Campers  *
+    *  Buscar Camper  *
     *******************
     """)
+
+    for i, val in enumerate(camper):
+        telefonos = ""
+        for valor in val.get('Telefonos'):
+            for key, value in valor.items():
+                telefonos += f" {key} = {value} "
+
     for i,val in enumerate(camper):
-        print(f"""
+        if (val.get('Nro Identificacion') == numr):
+            print(f"""
     ____________________________
     Codigo: {i}
     Nro Identificacion: {val.get('Nro Identificacion')}
     Nombre: {val.get('Nombre')}
     Apellido: {val.get('Apellido')}
     Direccion: {val.get('Direccion')}
-    Telefonos: {val.get('Telefonos')}
+    Telefonos: {'Telefonos'}
+    Verificacion: {val.get('Verificacion')}
+    Estado: {val.get('Estado')}
     ____________________________
         """)
     return "The camper is avaliable"
@@ -110,9 +152,9 @@ def borrar():
     while(bandera):
         system("clear")
         print("""
-        ***************************
-        * Eliminacion Camper  *
-        ***************************
+        ********************
+        * Eliminar Camper  *
+        ********************
         """)
         codigo = int(input("Ingrese el codigo del camper que deseas eliminar: "))
         print(f"""
@@ -123,6 +165,8 @@ def borrar():
     Apellido: {camper[codigo].get('Apellido')}
     Direccion: {camper[codigo].get('Direccion')}
     Telefonos: {camper[codigo].get('Telefonos')}
+    Verificacion: {camper[codigo].get('Verificacion')}
+    Estado: {camper[codigo].get('Estado')}
     ________________________
         """)
         print("¿Este es el camper que deseas eliminar?")
@@ -160,7 +204,11 @@ def borrar():
 def menu():
     bandera = True
     while (bandera):
-        print("CRUD del camper")
+        print(f"""
+    *****************
+    *  Menu Camper  *
+    *****************
+    """)
         print("\t1. Ingresar Camper")
         print("\t2. Editar Camper")
         print("\t3. Buscar Camper")
