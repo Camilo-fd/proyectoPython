@@ -1,0 +1,73 @@
+[
+    {
+        "Codigo": 1,
+        "Nombre Modulo": "Fundamentos de programacion",
+        "Prioridad": "Alta",
+        "Temarios": [
+            {
+                "Temario": "Introduccion a la programacion"
+            },
+            {
+                "Temario": "Pseint"
+            },
+            {
+                "Temario": "Python"
+            }
+        ],
+        "Temario": "Python"
+    },
+    {
+        "Codigo": 2,
+        "Nombre Modulo": "Programacion Web",
+        "Prioridad": "Alta",
+        "Temarios": [
+            {
+                "Temario": "HTML"
+            },
+            {
+                "Temario": "CSS"
+            },
+            {
+                "Temario": "Bootstrap"
+            }
+        ],
+        "Temario": "Bootstrap"
+    },
+    {
+        "Codigo": 3,
+        "Nombre Modulo": "Base de datos",
+        "Prioridad": "Alta",
+        "Temarios": [
+            {
+                "Temario": "Mysql"
+            },
+            {
+                "Temario": "MongoDb"
+            },
+            {
+                "Temario": "Postgresql"
+            }
+        ],
+        "Temario": "Postgresql"
+    },
+    {
+        "Codigo": 4,
+        "Nombre Modulo": "Backend",
+        "Prioridad": "Alta",
+        "Temarios": [
+            {
+                "Temario": "NetCore"
+            },
+            {
+                "Temario": "Spring Boot"
+            },
+            {
+                "Temario": "NodeJs"
+            },
+            {
+                "Temario": "Express"
+            }
+        ],
+        "Temario": "Express"
+    }
+]

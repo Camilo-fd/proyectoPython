@@ -44,10 +44,7 @@ def guardar():
         exit
     elif 16 <= edad < 18:
         info["Responsable"] = input("Ingrese su acudiente: ")
-        info["Acudiente"].append({
-            # "Edad": edad,
-            "Responsable": info["Responsable"]
-        })
+        info["Acudiente"].append({"Responsable": info["Responsable"] })
 
     camper.append(info)
     with open("programa/datosJson/camper.json", "w") as f:
