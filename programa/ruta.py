@@ -37,23 +37,32 @@ def editar():
     Nombre Ruta: {ruta[codigo].get('Nombre Ruta')}
     Modulo: {ruta[codigo].get('Modulo')}
         """)
+        
 
-def asignarModulo():
-    bandera = True
-    while (bandera):
-        print(f"""
-    ******************
-    *  Asigar Modulo  *
-    ******************
-    """)
-    info = {
-        "Codigo": int(input("Codigo: ")),
-        "Nombre Ruta": input("Nombre de la ruta: "),
-        "Modulo": []
-    }
-    info["Modulo"].append(info["modulo"])
-    bandera = False
-    return info
+def asigarmodulo():
+    with open("programa/datosJson/ruta.json", "r") as f:
+                rutas = json.loads(f.read())
+                f.close()
+    print(rutas)
+    codruta = int(input("Codigo de ruta: "))
+    print(rutas[codruta])
+    with open("programa/datosJson/modulo.json", "r") as f:
+                modulos = json.loads(f.read())
+                f.close()
+    print(modulos)
+    while True:
+        codmod = int(input("Codigo de modulo: "))
+        print(modulos[codmod])
+        rutas[codruta]["Modulo"].append(modulos[codmod])
+        with open("programa/datosJson/ruta.json", "w") as f:
+            rutas = json.dumps(rutas, indent=4)
+            f.write(rutas)
+            f.close()
+        opc = int(input())
+        if opc == 1:
+            asigarmodulo()
+        break
+
 
 def menu():
     bandera = True
@@ -81,4 +90,4 @@ def menu():
                 editar()
             case 3:
                 system("clear")
-                asignarModulo()
+                asigarmodulo()

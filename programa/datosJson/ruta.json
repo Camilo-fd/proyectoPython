@@ -1,7 +1,30 @@
 [
     {
         "Nombre Ruta": "NodeJs",
-        "Modulo": [],
+        "Modulo": [
+            {
+                "Codigo": 1,
+                "Nombre Modulo": "Fundamentos de programacion",
+                "Prioridad": "Alta",
+                "Temarios": [
+                    {
+                        "Temario": "Introduccion a la programacion"
+                    },
+                    {
+                        "Temario": "Pseint"
+                    },
+                    {
+                        "Temario": "Python"
+                    }
+                ],
+                "Temario": "Python"
+            }
+        ],
         "Codigo": 10
+    },
+    {
+        "Codigo": 16,
+        "Nombre Ruta": "Math",
+        "Modulo": []
     }
 ]

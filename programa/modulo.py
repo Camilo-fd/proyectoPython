@@ -21,7 +21,9 @@ def crear():
         f.close()
         system("clear")
 
-
+def leermodulo():
+    with open("programa/datosJson/modulo.json", "r") as f:
+        return json.loads(f.read())
     
 def menu():
     bandera = True

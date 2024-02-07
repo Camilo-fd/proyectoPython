@@ -32,42 +32,5 @@
             }
         ],
         "Temario": "Bootstrap"
-    },
-    {
-        "Codigo": 3,
-        "Nombre Modulo": "Base de datos",
-        "Prioridad": "Alta",
-        "Temarios": [
-            {
-                "Temario": "Mysql"
-            },
-            {
-                "Temario": "MongoDb"
-            },
-            {
-                "Temario": "Postgresql"
-            }
-        ],
-        "Temario": "Postgresql"
-    },
-    {
-        "Codigo": 4,
-        "Nombre Modulo": "Backend",
-        "Prioridad": "Alta",
-        "Temarios": [
-            {
-                "Temario": "NetCore"
-            },
-            {
-                "Temario": "Spring Boot"
-            },
-            {
-                "Temario": "NodeJs"
-            },
-            {
-                "Temario": "Express"
-            }
-        ],
-        "Temario": "Express"
     }
 ]

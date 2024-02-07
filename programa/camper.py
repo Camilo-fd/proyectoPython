@@ -101,7 +101,7 @@ def editar():
 
             for x in range(int(input("Ingrese la cantidad de telefonos: ")))
         ],
-        "Acudiente": [],
+        # "Acudiente": [],
         "Estado": input("")
     }
         # edad = int(input("Ingrese la edad del camper: "))
