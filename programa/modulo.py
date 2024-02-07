@@ -2,10 +2,6 @@ import json
 from .datos import modulo
 from os import system
 
-# def carga():
-#     with open("programa/datosJson/modulos.json", "r") as f:
-#         return json.loads(f.read())
-    
 def crear():
     info = {
         "Codigo": int(input("Codigo: ")),
@@ -24,12 +20,13 @@ def crear():
         f.write(datos)
         f.close()
         system("clear")
+
+
     
 def menu():
     bandera = True
     while (bandera):
         print("\t1. Crear Modulo")
-        print("\t2. Asiganr Modulo Ruta")
         print("\t0. Salir Modulo")
         try:
             opc = int(input())

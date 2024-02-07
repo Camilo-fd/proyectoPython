@@ -28,24 +28,28 @@ def guardar():
         "Acudiente": [],
         "Estado": "Pre inscrito"
     }
-
-    edad = int(input("Ingrese la edad del camper: "))
-    if edad < 16:
-        system("clear")
-        return print('''
-                     No tienes la edad suficiente
-                     ''')
-    elif edad > 28:
-        system("clear")
-        return print('''
-                     Excedes el limite de edad
-                     ''')
-    elif edad >=18:
-        exit
-    elif 16 <= edad < 18:
-        info["Responsable"] = input("Ingrese su acudiente: ")
-        info["Acudiente"].append({"Responsable": info["Responsable"] })
-
+    bandera = True
+    while (bandera):
+        try:
+            edad = int(input("Ingrese la edad del camper: "))
+        except ValueError:
+            continue
+        if edad < 16:
+            system("clear")
+            return print('''
+                        No tienes la edad suficiente
+                        ''')
+        elif edad > 28:
+            system("clear")
+            return print('''
+                        Excedes el limite de edad
+                        ''')
+        elif edad >=18:
+            exit
+        elif 16 <= edad < 18:
+            info["Responsable"] = input("Ingrese su acudiente: ")
+            info["Acudiente"].append({"Responsable": info["Responsable"] })
+            bandera = False
     camper.append(info)
     with open("programa/datosJson/camper.json", "w") as f:
         data = json.dumps(camper, indent=4)
@@ -65,7 +69,7 @@ def editar():
         * Editar Camper *
         *****************
         """)
-        codigo = int(input("Ingrese el codigo del camper: "))
+        codigo = int(input("Escribe tu numero de registro: "))
         print(f"""
     ________________________
     Codigo: {codigo}
@@ -100,18 +104,18 @@ def editar():
         "Acudiente": [],
         "Estado": input("")
     }
-        edad = int(input("Ingrese la edad del camper: "))
-        if edad < 16:
-            print("No tienes la edad suficiente")
-            exit
-        elif edad >=18:
-            exit
-        elif 16 <= edad < 18:
-            info["Responsable"] = input("Ingrese su acudiente: ")
-            info["Acudiente"].append({
-                # "Edad": edad,
-                "Responsable": info["Responsable"]
-            })
+        # edad = int(input("Ingrese la edad del camper: "))
+        # if edad < 16:
+        #     print("No tienes la edad suficiente")
+        #     exit
+        # elif edad >=18:
+        #     exit
+        # elif 16 <= edad < 18:
+        #     info["Responsable"] = input("Ingrese su acudiente: ")
+        #     info["Acudiente"].append({
+        #         # "Edad": edad,
+        #         "Responsable": info["Responsable"]
+        #     })
             camper[codigo] = info
             with open("programa/datosJson/camper.json", "w") as f:
                     data = json.dumps(camper, indent=4)
@@ -119,7 +123,9 @@ def editar():
                     f.close()
             bandera = False
             system("clear")
-
+        elif (opc == 2):
+            bandera = False
+            print("Suerte")
         elif(opc == 3):
             bandera = False
             system("clear")
@@ -145,7 +151,6 @@ def buscar():
         if (val.get('Nro Identificacion') == numr):
             print(f"""
     ____________________________
-    Codigo: {i}
     Nro Identificacion: {val.get('Nro Identificacion')}
     Nombre: {val.get('Nombre')}
     Apellido: {val.get('Apellido')}

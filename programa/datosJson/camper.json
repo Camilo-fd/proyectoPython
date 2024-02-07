@@ -1,28 +1,20 @@
 [
     {
         "Nro Identificacion": 16,
-        "Nombre": "jfg",
-        "Apellido": "dyhr",
-        "Direccion": "gege",
+        "Nombre": "d",
+        "Apellido": "f",
+        "Direccion": "",
         "Telefonos": [
             {
-                "Fijo": 23
+                "Fijo": 3005452669
             }
         ],
-        "Acudiente": [],
-        "Estado": "Pre inscrito"
-    },
-    {
-        "Nro Identificacion": 1,
-        "Nombre": "c",
-        "Apellido": "v",
-        "Direccion": "b",
-        "Telefonos": [
+        "Acudiente": [
             {
-                "Fijo": 2
+                "Responsable": "MA"
             }
         ],
-        "Acudiente": [],
-        "Estado": "Pre inscrito"
+        "Estado": "Pre inscrito",
+        "Responsable": "MA"
     }
 ]
