@@ -11,7 +11,7 @@ def pruebaSeleccion():
         "Nota": int(input("Nota: "))
     }
     
-# def asigarPrueba():
+# def asignarPrueba():
 #         with open("programa/datosJson/camper.json", "r") as f:
 #                 camper = json.loads(f.read())
 #                 f.close()
@@ -45,9 +45,9 @@ def menu():
             system("clear")
             continue
         match(opc):
-            case 1:
-                system("clear")
-                asigarPrueba()
+            # case 1:
+            #     system("clear")
+            #     asignarPrueba()
             case 0:
                 system("clear")
                 bandera = False

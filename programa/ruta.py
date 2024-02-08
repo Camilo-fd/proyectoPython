@@ -80,14 +80,16 @@ def editar():
             bandera = False
             system("clear")
 
-def printRuta(ruta):
+def printRuta(ruta): # IMPRIMO LA RUTA LINDO
     print(f"""
+            -----------------------RUTA-----------------------
             Codigo: {ruta["Codigo"]}
             Nombre Ruta: {ruta["Nombre Ruta"]}
-            Modulos: {listado(ruta)}
+            Modulos:{listadoruta(ruta)}
+            --------------------------------------------------
               """)
 
-def listado(ruta):
+def listadoruta(ruta): # LISTO LA RUTA 
             for i in ruta["Modulo"]:
                 return(f"""
                     Codigo: {i["Codigo"]}
@@ -95,31 +97,53 @@ def listado(ruta):
                     Prioridad: {i["Prioridad"]}
                       """)
             
+def printModulo(modulo): # IMPRIMO EL MODULO LINDO
+    print(f"""
+            ----------------MODULO-------------
+            Codigo: {modulo["Codigo"]}
+            Nombre Modulo: {modulo["Nombre Modulo"]}
+            Prioridad: {modulo["Prioridad"]}
+            Temarios: {listadomodulo(modulo)}
+            -----------------------------------
+              """)
+
+def listadomodulo(modulo): # LISTO LOS TEMARIOS
+    texto=""
+    for i in modulo["Temarios"]:
+        texto+=f'\n\t\t     {i["Temario"]} '
+    return (texto)
+
 def asigarmodulo():
+    varRuta = 0
+    varMod = 0
     print("""
-        ******************
-        * Asignar Modulo *
-        ******************
+        *************************
+        * Asignar Modulo A RUTA *
+        *************************
         """)
     with open("programa/datosJson/ruta.json", "r") as f:
         rutas = json.loads(f.read())
         f.close()
     for ruta in rutas:
         printRuta(ruta)
-    # codruta = int(input("Codigo de ruta: "))
     codruta = int(input("Codigo Ruta: "))
     for i,val in enumerate(rutas):
         if (val.get('Codigo') == codruta):
             printRuta(rutas[codruta])
+            varRuta = i
     with open("programa/datosJson/modulo.json", "r") as f:
         modulos = json.loads(f.read())
         f.close()
+    for modulo in modulos:
+        printModulo(modulo)
     while True:
         codmod = int(input("Codigo de modulo: "))
         for i,val in enumerate(modulos):
             if (val.get('Codigo') == codmod):
-                print(modulos[codmod])
-        rutas[codruta]["Modulo"].append(modulos[codmod])
+                # printModulo(modulos[codmod])
+                print("EXITOSO")
+                varMod = i
+        rutas[varRuta]["Modulo"].append(modulos[varMod])
         with open("programa/datosJson/ruta.json", "w") as f:
             rutas = json.dumps(rutas, indent=4)
             f.write(rutas)

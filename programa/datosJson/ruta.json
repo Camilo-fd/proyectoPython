@@ -1,35 +1,24 @@
 [
     {
-        "Nombre Ruta": "NodeJs",
+        "Codigo": "111",
+        "Nombre Ruta": "Json",
         "Modulo": [
             {
-                "Codigo": 2,
-                "Nombre Modulo": "Programacion Web",
+                "Codigo": 1,
+                "Nombre Modulo": "Fundamentos de programacion",
                 "Prioridad": "Alta",
                 "Temarios": [
                     {
-                        "Temario": "HTML"
+                        "Temario": "Introduccion a la programacion"
                     },
                     {
-                        "Temario": "CSS"
+                        "Temario": "Pseint"
                     },
                     {
-                        "Temario": "Bootstrap"
+                        "Temario": "Python"
                     }
-                ],
-                "Temario": "Bootstrap"
+                ]
             }
-        ],
-        "Codigo": 10
-    },
-    {
-        "Codigo": "111",
-        "Nombre Ruta": "Json",
-        "Modulo": []
-    },
-    {
-        "Codigo": "111",
-        "Nombre Ruta": "Json",
-        "Modulo": []
+        ]
     }
 ]
