@@ -18,6 +18,11 @@ def guardarhorarios():
 def menu():
     bandera = True
     while (bandera):
+        print("""
+        *****************
+        * Menu Horarios *
+        *****************
+        """)
         print("1. Guardar horario")
         try:
             opc = int(input())

@@ -1,7 +1,35 @@
 [
     {
         "Nombre Ruta": "NodeJs",
-        "Modulo": [],
+        "Modulo": [
+            {
+                "Codigo": 2,
+                "Nombre Modulo": "Programacion Web",
+                "Prioridad": "Alta",
+                "Temarios": [
+                    {
+                        "Temario": "HTML"
+                    },
+                    {
+                        "Temario": "CSS"
+                    },
+                    {
+                        "Temario": "Bootstrap"
+                    }
+                ],
+                "Temario": "Bootstrap"
+            }
+        ],
         "Codigo": 10
+    },
+    {
+        "Codigo": "111",
+        "Nombre Ruta": "Json",
+        "Modulo": []
+    },
+    {
+        "Codigo": "111",
+        "Nombre Ruta": "Json",
+        "Modulo": []
     }
 ]

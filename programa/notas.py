@@ -4,28 +4,29 @@ from .valido import menuNoValid
 # from .datos import camper
 import json
 
-def pruebaInicial():
-    notaTeorica = int(input("Ingrese la nota teorica: "))
-    notaPractica = int(input("Ingrese la nota pratica: "))
-    promedio = (notaPractica + notaTeorica) / 2
-    print(promedio)
-
-def asigarPrueba():
-        with open("programa/datosJson/camper.json", "r") as f:
-                camper = json.loads(f.read())
-                f.close()
-        codigoCamper = int(input("Codigo del camper: "))
-        print(f"{camper[codigoCamper]}")
-        with open("programa/datosJson/notas.json", "r") as f:
-            nota = json.loads(f.read())
-            f.close()
-        while True:
-            pruebaInicial.append(campers[codigoCamper])
-            with open("programa/datosJson/ruta.json", "w") as f:
-                campers = json.dumps(campers, indent=4)
-                f.write(campers)
-                f.close()
-                break
+def pruebaSeleccion():
+    info = {
+        "Nro Identificacion": int(input("Nro Identificacion Camper: ")),
+        "Fecha": input("Fecha: "),
+        "Nota": int(input("Nota: "))
+    }
+    
+# def asigarPrueba():
+#         with open("programa/datosJson/camper.json", "r") as f:
+#                 camper = json.loads(f.read())
+#                 f.close()
+#         codigoCamper = int(input("Codigo del camper: "))
+#         print(f"{camper[codigoCamper]}")
+#         with open("programa/datosJson/notas.json", "r") as f:
+#             nota = json.loads(f.read())
+#             f.close()
+#         while True:
+#             pruebaInicial.append(campers[codigoCamper])
+#             with open("programa/datosJson/ruta.json", "w") as f:
+#                 campers = json.dumps(campers, indent=4)
+#                 f.write(campers)
+#                 f.close()
+#                 break
 
 def menu():
     bandera = True

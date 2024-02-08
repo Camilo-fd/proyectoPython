@@ -3,8 +3,17 @@ from .datos import modulo
 from os import system
 
 def crear():
+    while True:
+        codigo = input("Codigo Modulo: ")
+        for modulos in modulo:
+                if modulos["Codigo"] == codigo:
+                    print("                                                           ")
+                    print("Este Codigo de modulo ya esta creado, ingrese uno diferente")
+                    break
+        else:
+                   break
     info = {
-        "Codigo": int(input("Codigo: ")),
+        "Codigo": codigo,
         "Nombre Modulo": input("Nombre Modulo: "),
         "Prioridad": input("Prioridad: "),
         "Temarios": []
@@ -22,10 +31,11 @@ def crear():
         system("clear")
         print("Modulo registrado correctamente")
 
+
 def editar():
     bandera = True
     while (bandera):
-        codigo = int(input("Ingrese el codigo del modulo: "))
+        codigo = input("Ingrese el codigo del modulo: ")
         print(f"""
         Codigo: {codigo}
         Nombre Modulo: {modulo[codigo].get('Nombre Modulo')}
@@ -43,7 +53,7 @@ def editar():
             continue
         if (opc == 1):
                 info = {
-        "Codigo": int(input("Codigo: ")),
+        "Codigo": input("Codigo: "),
         "Nombre Modulo": input("Nombre Modulo: "),
         "Prioridad": input("Prioridad: "),
         "Temarios": []
@@ -79,6 +89,9 @@ def menu():
             case 1:
                 system("clear")
                 crear()
+            case 2:
+                system("clear")
+                editar()
             case 0:
                 system("clear")
                 bandera = False
