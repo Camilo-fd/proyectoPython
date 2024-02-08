@@ -1,19 +1,7 @@
 [
     {
-        "Nro Identificacion": 16,
-        "Nombre": "d",
-        "Apellido": "f",
-        "Direccion": "",
-        "Telefonos": [
-            {
-                "Fijo": 3005452669
-            }
-        ],
-        "Acudiente": [
-            {
-                "Responsable": "MA"
-            }
-        ],
-        "Estado": "Pre inscrito"
+        "Nombre Sala": "Apolo",
+        "Codigo": 11,
+        "Capacidad": null
     }
 ]

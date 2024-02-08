@@ -1,11 +1,13 @@
 import json
 from os import system
+from programa.valido import menuNoValid
 import programa.camper as camper 
 import programa.trainer as trainer
-from programa.valido import menuNoValid
 import programa.notas as notas
 import programa.ruta as ruta
 import programa.modulo as modulo
+import programa.horario as horario
+import programa.salasEntrenamiento as salasEntrenamiento
 
 def menu():
     print("""
@@ -19,6 +21,8 @@ def menu():
     print("\t3. Notas")
     print("\t4. Rutas")
     print("\t5. Modulos")
+    print("\t6. Horarios")
+    print("\t7. Salas Entrenamiento")
     print("\t0. Salir")
 bandera = True
 while (bandera):
@@ -45,7 +49,7 @@ while (bandera):
             system("clear")
         case 3:
             with open("programa/datosJson/notas.json", "r") as f:
-                camper.camper = json.loads(f.read())
+                notas.notas = json.loads(f.read())
                 f.close()
                 system("clear")
                 notas.menu()
@@ -63,6 +67,20 @@ while (bandera):
                 f.close()
                 system("clear")
                 modulo.menu()
+            system("clear")
+        case 6:
+            with open("programa/datosJson/horario.json", "r") as f:
+                horario.horario = json.loads(f.read())
+                f.close()
+                system("clear")
+                horario.menu()
+            system("clear")
+        case 7:
+            with open("programa/datosJson/salasEntrenamiento.json", "r") as f:
+                salasEntrenamiento.salasEntrenamiento = json.loads(f.read())
+                f.close()
+                system("clear")
+                salasEntrenamiento.menu()
             system("clear")
         case 0:
             bandera = False

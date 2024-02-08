@@ -43,13 +43,13 @@ def asigarmodulo():
     with open("programa/datosJson/ruta.json", "r") as f:
                 rutas = json.loads(f.read())
                 f.close()
-    print(rutas)
+    # print(rutas)
     codruta = int(input("Codigo de ruta: "))
-    print(rutas[codruta])
+    print(f"{rutas[codruta]}")
     with open("programa/datosJson/modulo.json", "r") as f:
                 modulos = json.loads(f.read())
                 f.close()
-    print(modulos)
+    # print(modulos)
     while True:
         codmod = int(input("Codigo de modulo: "))
         print(modulos[codmod])
@@ -58,10 +58,12 @@ def asigarmodulo():
             rutas = json.dumps(rutas, indent=4)
             f.write(rutas)
             f.close()
-        opc = int(input())
+        opc = int(input("Quieres asigar otro modulo?\n1.Si\n2.No\n "))
         if opc == 1:
             asigarmodulo()
-        break
+        elif opc == 2:
+            print("Modulo asignado correctamente")
+            break
 
 
 def menu():
