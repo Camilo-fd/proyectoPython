@@ -1,7 +1,20 @@
 [
     {
-        "Nombre Sala": "Apolo",
-        "Codigo": 11,
-        "Capacidad": null
+        "Nro Identificacion": "133",
+        "Nombre": "AAAA",
+        "Apellido": "SSS",
+        "Direccion": "DDD",
+        "Telefonos": [
+            {
+                "Fijo": 33333
+            }
+        ],
+        "Acudiente": [
+            {
+                "Responsable": "WWW"
+            }
+        ],
+        "Estado": "Pre inscrito",
+        "Responsable": "WWW"
     }
 ]

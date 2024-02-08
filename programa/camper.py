@@ -9,9 +9,15 @@ def guardar():
     *  Ingresar Camper  *
     *********************
     """)
+    while True:
+        NroIdentifiacion = input("Ingrese su numero de identificacion: ")
+        if NroIdentifiacion.isdigit():
+            break
+        else:
+            print("Ingrese solo numero")
 
     info = {
-        "Nro Identificacion": int(input("Ingrese su numero de identificacion: ")),
+        "Nro Identificacion": NroIdentifiacion,
         "Nombre": input("Ingrese el nombre del camper: "),
         "Apellido": input("Ingrese el apellido del camper: "),
         "Direccion": input("Ingrese la direccion del camper: "),
@@ -30,19 +36,16 @@ def guardar():
     }
     bandera = True
     while (bandera):
-        try:
-            edad = int(input("Ingrese la edad del camper: "))
-        except ValueError:
-            continue
+        edad = int(input("Ingrese la edad del camper: "))
         if edad < 16:
             system("clear")
             return print('''
-                        No tienes la edad suficiente
+        No tienes la edad suficiente
                         ''')
         elif edad > 28:
             system("clear")
             return print('''
-                        Excedes el limite de edad
+        Excedes el limite de edad
                         ''')
         elif edad >=18:
             exit
@@ -50,15 +53,15 @@ def guardar():
             info["Responsable"] = input("Ingrese su acudiente: ")
             info["Acudiente"].append({"Responsable": info["Responsable"] })
             bandera = False
-    camper.append(info)
-    with open("programa/datosJson/camper.json", "w") as f:
-        data = json.dumps(camper, indent=4)
-        f.write(data)
-        f.close()
-        system("clear")
-    print("                               ")
-    print("Camper registrado correctamente")
-    print("                               ")
+        camper.append(info)
+        with open("programa/datosJson/camper.json", "w") as f:
+            data = json.dumps(camper, indent=4)
+            f.write(data)
+            f.close()
+            system("clear")
+        print("                               ")
+        print("Camper registrado correctamente")
+        print("                               ")
 
 def editar():
     bandera=True

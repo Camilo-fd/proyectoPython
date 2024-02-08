@@ -1,23 +1,24 @@
 [
     {
-        "Codigo": "111",
-        "Nombre Ruta": "Json",
+        "Codigo": "124",
+        "Nombre Ruta": "KAREN2",
         "Modulo": [
             {
-                "Codigo": 1,
-                "Nombre Modulo": "Fundamentos de programacion",
-                "Prioridad": "Alta",
+                "Codigo": "1232",
+                "Nombre Modulo": "Karen",
+                "Prioridad": "NUlA",
                 "Temarios": [
                     {
-                        "Temario": "Introduccion a la programacion"
+                        "Temario": "FUNDAMENTOS KAREN"
                     },
                     {
-                        "Temario": "Pseint"
+                        "Temario": "KAREN"
                     },
                     {
-                        "Temario": "Python"
+                        "Temario": "HENRY"
                     }
-                ]
+                ],
+                "Temario": "HENRY"
             }
         ]
     }

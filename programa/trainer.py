@@ -38,28 +38,28 @@ def buscar():
     return "El camper esta disponible"
 
 def asignarCamper():
-    with open("programa/datosJson/camper.json", "r") as f:
-        campers = json.loads(f.read())
+    with open("programa/datosJson/trainer.json", "r") as f:
+        trainer = json.loads(f.read())
         f.close()
-    codruta = int(input("Codigo de ruta: "))
-    print(f"{campers[codruta]}")
-    with open("programa/datosJson/modulo.json", "r") as f:
-        modulos = json.loads(f.read())
+    codtra = int(input("Codigo de trainer: "))
+    print(f"{trainer[codtra]}")
+    with open("programa/datosJson/camper.json", "r") as f:
+        camper = json.loads(f.read())
         f.close()
     while True:
-        codmod = int(input("Codigo de modulo: "))
-        print(modulos[codmod])
-        rutas[codruta]["Modulo"].append(modulos[codmod])
-        with open("programa/datosJson/ruta.json", "w") as f:
+        codcamp = int(input("Codigo de modulo: "))
+        print(camper[codcamp])
+        rutas[codtra]["Modulo"].append(camper[codcamp])
+        with open("programa/datosJson/trainer.json", "w") as f:
             rutas = json.dumps(rutas, indent=4)
             f.write(rutas)
             f.close()
-        opc = int(input("Quieres asigar otro modulo?\n1.Si\n2.No\n "))
+        opc = int(input("Quieres asigar otro camper?\n1.Si\n2.No\n "))
         if opc == 1:
-            asigarmodulo()
+            asignarCamper()
         elif opc == 2:
             system("clear")
-            print("Modulo asignado correctamente")
+            print("Camper asignado correctamente")
             break
         
 def menu():
@@ -72,6 +72,7 @@ def menu():
         """)
         print("\t1. Guardar Trainer")
         print("\t2. Buscar Trainer")
+        print("\t3. Agregar Camper a Trainer")
         print("\t0. Atras")
         try:
             opc = int(input())
@@ -85,6 +86,9 @@ def menu():
             case 2:
                 system("clear")
                 buscar()
+            case 3:
+                system("clear")
+                asignarCamper()
             case 0:
                 system("clear")
                 bandera = False

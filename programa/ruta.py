@@ -34,7 +34,20 @@ def ingresar():
     print("Ruta registrada correctamente")
     print("                               ")
 
+def listar():
+    system("clear")
+    print(f"""
+    ******************
+    *  Listar Rutas  *
+    ******************
+    """)
 
+    with open("programa/datosJson/ruta.json", "r") as f:
+        rutas = json.loads(f.read())
+        f.close()
+    for ruta in rutas:
+        printRuta(ruta)
+            
 def editar():
     bandera = True
     while(bandera):
@@ -141,7 +154,8 @@ def asigarmodulo():
         for i,val in enumerate(modulos):
             if (val.get('Codigo') == codmod):
                 # printModulo(modulos[codmod])
-                print("EXITOSO")
+                print("Asignacion Exitosa")
+                print("                  ")
                 varMod = i
         rutas[varRuta]["Modulo"].append(modulos[varMod])
         with open("programa/datosJson/ruta.json", "w") as f:
@@ -167,7 +181,8 @@ def menu():
     """)
         print("\t1. Registrar Ruta")
         print("\t2. Editar Ruta")
-        print("\t3. Asiganar modulo")
+        print("\t3. Buscar RUta")
+        print("\t4. Asiganar modulo")
         print("\t0. Salir")
         try:
             opc = int(input())
@@ -182,5 +197,8 @@ def menu():
                 system("clear")
                 editar()
             case 3:
+                system("clear")
+                listar()
+            case 4:
                 system("clear")
                 asigarmodulo()

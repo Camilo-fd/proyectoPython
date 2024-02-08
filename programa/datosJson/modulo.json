@@ -1,34 +1,19 @@
 [
     {
-        "Codigo": 1,
-        "Nombre Modulo": "Fundamentos de programacion",
-        "Prioridad": "Alta",
+        "Codigo": "1232",
+        "Nombre Modulo": "Karen",
+        "Prioridad": "NUlA",
         "Temarios": [
             {
-                "Temario": "Introduccion a la programacion"
+                "Temario": "FUNDAMENTOS KAREN"
             },
             {
-                "Temario": "Pseint"
+                "Temario": "KAREN"
             },
             {
-                "Temario": "Python"
+                "Temario": "HENRY"
             }
-        ]
-    },
-    {
-        "Codigo": 2,
-        "Nombre Modulo": "Programacion Web",
-        "Prioridad": "Alta",
-        "Temarios": [
-            {
-                "Temario": "HTML"
-            },
-            {
-                "Temario": "CSS"
-            },
-            {
-                "Temario": "Bootstrap"
-            }
-        ]
+        ],
+        "Temario": "HENRY"
     }
 ]
