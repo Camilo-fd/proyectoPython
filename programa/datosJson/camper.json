@@ -1,20 +1,20 @@
 [
     {
-        "Nro Identificacion": "133",
-        "Nombre": "AAAA",
-        "Apellido": "SSS",
-        "Direccion": "DDD",
+        "Nro Identificacion": "2332",
+        "Nombre": "da",
+        "Apellido": "asfas",
+        "Direccion": "faafs",
         "Telefonos": [
             {
-                "Fijo": 33333
+                "Fijo": 323232323
             }
         ],
         "Acudiente": [
             {
-                "Responsable": "WWW"
+                "Responsable": "nnn"
             }
         ],
         "Estado": "Pre inscrito",
-        "Responsable": "WWW"
+        "Responsable": "nnn"
     }
 ]

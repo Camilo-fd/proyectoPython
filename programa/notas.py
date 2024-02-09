@@ -21,8 +21,8 @@ def pruebaSeleccion():
 def notaSeleccion():
     notaPractica = int(input("Nota Practica: "))
     notaTeorica = int(input("Nota Teorica: "))
-    promedio = (notaPractica+notaTeorica) / 2
-    print(f"Promedio Nota:{promedio}")
+    promedio = int((notaPractica+notaTeorica) / 2)
+    return promedio
 
 # def asignarPrueba():
 #         with open("programa/datosJson/camper.json", "r") as f:

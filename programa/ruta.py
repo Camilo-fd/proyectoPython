@@ -209,3 +209,6 @@ def menu():
             case 4:
                 system("clear")
                 asigarmodulo()
+            case 0:
+                system("clear")
+                bandera = False
