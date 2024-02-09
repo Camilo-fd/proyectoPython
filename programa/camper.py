@@ -135,36 +135,58 @@ def editar():
     return "Edit to camper"
 
 def buscar():
+    # system("clear")
+    # numr = 0
+    # numr = int(input("Escribe tu numero de registro: "))
+    # print(f"""
+    # *******************
+    # *  Buscar Camper  *
+    # *******************
+    # """)
+
+    # for i, val in enumerate(camper):
+    #     telefonos = ""
+    #     for valor in val.get('Telefonos'):
+    #         for key, value in valor.items():
+    #             telefonos += f" {key} = {value} "
+
+    # for i,val in enumerate(camper):
+    #     if (val.get('Nro Identificacion') == numr):
+    #         print(f"""
+    # ____________________________
+    # Nro Identificacion: {val.get('Nro Identificacion')}
+    # Nombre: {val.get('Nombre')}
+    # Apellido: {val.get('Apellido')}
+    # Direccion: {val.get('Direccion')}
+    # Telefonos: {telefonos}
+    # Verificacion: {val.get('Verificacion')}
+    # Estado: {val.get('Estado')}
+    # ____________________________
+    #     """)
+    # return "The camper is avaliable"
     system("clear")
-    numr = 0
-    numr = int(input("Escribe tu numero de registro: "))
     print(f"""
-    *******************
-    *  Buscar Camper  *
-    *******************
+    ******************
+    *  Listar Camper  *
+    ******************
     """)
 
-    for i, val in enumerate(camper):
-        telefonos = ""
-        for valor in val.get('Telefonos'):
-            for key, value in valor.items():
-                telefonos += f" {key} = {value} "
+    with open("programa/datosJson/camper.json", "r") as f:
+        campers = json.loads(f.read())
+        f.close()
+    for i in camper:
+        print(i)
 
-    for i,val in enumerate(camper):
-        if (val.get('Nro Identificacion') == numr):
-            print(f"""
-    ____________________________
-    Nro Identificacion: {val.get('Nro Identificacion')}
-    Nombre: {val.get('Nombre')}
-    Apellido: {val.get('Apellido')}
-    Direccion: {val.get('Direccion')}
-    Telefonos: {telefonos}
-    Verificacion: {val.get('Verificacion')}
-    Estado: {val.get('Estado')}
-    ____________________________
-        """)
-    return "The camper is avaliable"
-
+def printCamper(camper):
+    print(f"""
+            ----------------CAMPER-------------
+            Codigo: {camper["Codigo"]}
+            Nombre Modulo: {camper["Nombre Modulo"]}
+            Prioridad: {camper["Prioridad"]}
+            Temarios: {listadomodulo(camper)}
+            -----------------------------------
+              """)
+    
 def borrar():
     bandera = True
     while(bandera):
@@ -224,7 +246,7 @@ def menu():
     while (bandera):
         print("""
     -----------------------------------------
-    -         MENU ADMINISTRACION           -
+    -             MENU CAMPER               -
     -----------------------------------------
     -   Sistema de almacenamiento de datos  -
     -     1. Ingresar Camper                -

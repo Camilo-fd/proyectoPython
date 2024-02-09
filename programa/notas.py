@@ -1,16 +1,29 @@
 # from programa.camper import camper
 from os import system
 from .valido import menuNoValid
-# from .datos import camper
+from .datos import notas
 import json
 
-def pruebaSeleccion():
+def pruebaSeleccion():  
     info = {
         "Nro Identificacion": int(input("Nro Identificacion Camper: ")),
         "Fecha": input("Fecha: "),
-        "Nota": int(input("Nota: "))
+        "Nota": notaSeleccion(),
+        "Estado": "Inscrito"
     }
-    
+    notas.append(info)
+    with open("programa/datosJson/notas.json", "w") as f:
+        data = json.dumps(notas, indent=4)
+        f.write(data)
+        f.close()
+        system("clear")
+
+def notaSeleccion():
+    notaPractica = int(input("Nota Practica: "))
+    notaTeorica = int(input("Nota Teorica: "))
+    promedio = (notaPractica+notaTeorica) / 2
+    print(f"Promedio Nota:{promedio}")
+
 # def asignarPrueba():
 #         with open("programa/datosJson/camper.json", "r") as f:
 #                 camper = json.loads(f.read())
@@ -28,6 +41,15 @@ def pruebaSeleccion():
 #                 f.close()
 #                 break
 
+# def notasCamper():
+#     info = {
+#         "Nro Identificacion": int(input("Nro Identificacion Camper: ")),
+#         "Codigo": input("Codigo Modulo: "),
+#         "Notas Proyecto": int(input("Nota Proyecto: ")),
+#         "Notas Generales": [],
+#         "Total": 
+#     }
+
 def menu():
     bandera = True
     while (bandera):
@@ -41,18 +63,15 @@ def menu():
     -     0. Salir                          -
     -----------------------------------------
 """)
-        print("\t1. Ingresar Notas")
-        print("\t4. Eliminar Notas")
-        print("\t0. Salir")
         try:
             opc = int(input())
         except ValueError:
             system("clear")
             continue
         match(opc):
-            # case 1:
-            #     system("clear")
-            #     asignarPrueba()
+            case 1:
+                system("clear")
+                pruebaSeleccion()
             case 0:
                 system("clear")
                 bandera = False
