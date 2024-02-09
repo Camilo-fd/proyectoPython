@@ -222,16 +222,18 @@ def borrar():
 def menu():
     bandera = True
     while (bandera):
-        print(f"""
-    *****************
-    *  Menu Camper  *
-    *****************
-    """)
-        print("\t1. Ingresar Camper")
-        print("\t2. Editar Camper")
-        print("\t3. Buscar Camper")
-        print("\t4. Eliminar Camper")
-        print("\t0. Salir")
+        print("""
+    -----------------------------------------
+    -         MENU ADMINISTRACION           -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Ingresar Camper                -
+    -     2. Editar Camper                  -
+    -     3. Buscar Camper                  -
+    -     4. Eliminar Camper                -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         try:
             opc = int(input())
         except ValueError:

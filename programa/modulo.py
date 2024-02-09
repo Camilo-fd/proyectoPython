@@ -77,9 +77,16 @@ def editar():
 def menu():
     bandera = True
     while (bandera):
-        print("\t1. Crear Modulo")
-        print("\t2. Editar Modulo")
-        print("\t0. Salir Modulo")
+        print("""
+    -----------------------------------------
+    -            MENU MODULOS               -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Crear Modulo                   -
+    -     2. Editar Modulo                  -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         try:
             opc = int(input())
         except ValueError:

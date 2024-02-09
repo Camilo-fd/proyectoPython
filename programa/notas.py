@@ -31,11 +31,16 @@ def pruebaSeleccion():
 def menu():
     bandera = True
     while (bandera):
-        print(f"""
-    *****************
-    *  Menu Notas  *
-    *****************
-    """)
+        print("""
+    -----------------------------------------
+    -             MENU NOTAS                -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Ingresar Notas                 -
+    -     4. Eliminar Notas                 -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         print("\t1. Ingresar Notas")
         print("\t4. Eliminar Notas")
         print("\t0. Salir")

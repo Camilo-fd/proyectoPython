@@ -174,11 +174,18 @@ def asigarmodulo():
 def menu():
     bandera = True
     while (bandera):
-        print(f"""
-    ******************
-    *  Rutas Camper  *
-    ******************
-    """)
+        print("""
+    -----------------------------------------
+    -              MENU RUTAS               -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Registrar Ruta                 -
+    -     2. Editar Ruta                    -
+    -     3. Buscar Ruta                    -
+    -     4. Asignar modulo                 -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         print("\t1. Registrar Ruta")
         print("\t2. Editar Ruta")
         print("\t3. Buscar RUta")

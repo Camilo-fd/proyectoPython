@@ -66,14 +66,15 @@ def menu():
     bandera = True
     while (bandera):
         print("""
-        ****************
-        * Menu Trainer *
-        *****************
-        """)
-        print("\t1. Guardar Trainer")
-        print("\t2. Buscar Trainer")
-        print("\t3. Agregar Camper a Trainer")
-        print("\t0. Atras")
+    -----------------------------------------
+    -            MENU TRAINER               -
+    -----------------------------------------
+    -     1. Guardar Trainer                -
+    -     2. Buscar Trainer                 -
+    -     3. Agregar Camper a Trainer       -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         try:
             opc = int(input())
         except ValueError:

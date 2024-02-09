@@ -19,11 +19,14 @@ def menu():
     bandera = True
     while (bandera):
         print("""
-        *****************
-        * Menu Horarios *
-        *****************
-        """)
-        print("1. Guardar horario")
+    -----------------------------------------
+    -            MENU HORARIO               -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Guardar horario                -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         try:
             opc = int(input())
         except ValueError:

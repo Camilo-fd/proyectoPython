@@ -11,19 +11,20 @@ import programa.salasEntrenamiento as salasEntrenamiento
 
 def menu():
     print("""
-        ************************
-        * Menu Adiministracion *
-        ************************
-        """)
-    print("Sistema de almacenamiento de dato")
-    print("\t1. Camper")
-    print("\t2. Trainer")
-    print("\t3. Notas")
-    print("\t4. Rutas")
-    print("\t5. Modulos")
-    print("\t6. Horarios")
-    print("\t7. Salas Entrenamiento")
-    print("\t0. Salir")
+    -----------------------------------------
+    -         MENU ADMINISTRACION           -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Camper                         -
+    -     2. Trainer                        -
+    -     3. Notas                          -
+    -     4. Rutas                          -
+    -     5. Modulos                        -
+    -     6. Horarios                       -
+    -     7. Salas Entrenamiento            -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
 bandera = True
 while (bandera):
     menu()

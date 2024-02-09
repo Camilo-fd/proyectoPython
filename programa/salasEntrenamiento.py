@@ -18,8 +18,15 @@ def ingresarSalas():
 def menu():
     bandera = True
     while (bandera):
-        print("__________")
-        print("\t1. Añadir Sala")
+        print("""
+    -----------------------------------------
+    -       MENU SALAS ENTRENAMIENTO        -
+    -----------------------------------------
+    -   Sistema de almacenamiento de datos  -
+    -     1. Añadir Sala                    -
+    -     0. Salir                          -
+    -----------------------------------------
+""")
         try:
             opc = int(input())
         except ValueError:
