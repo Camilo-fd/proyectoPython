@@ -6,7 +6,7 @@ def ingresarSalas():
     info = {
         "Nombre Sala": input("Nombre Sala: "),
         "Codigo": int(input("Codigo: ")),
-        "Capacidad Maxima": print(33, "Capacidad Maxima")
+        "Capacidad Maxima": print("Capacidad Maxima 33")
     }
     salasEntrenamiento.append(info)
     with open("programa/datosJson/camper.json", "w") as f:

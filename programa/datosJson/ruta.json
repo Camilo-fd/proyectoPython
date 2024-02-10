@@ -1,25 +1,49 @@
-[
-    {
-        "Codigo": "124",
-        "Nombre Ruta": "KAREN2",
-        "Modulo": [
-            {
-                "Codigo": "1232",
-                "Nombre Modulo": "Karen",
-                "Prioridad": "NUlA",
-                "Temarios": [
-                    {
-                        "Temario": "FUNDAMENTOS KAREN"
-                    },
-                    {
-                        "Temario": "KAREN"
-                    },
-                    {
-                        "Temario": "HENRY"
-                    }
-                ],
-                "Temario": "HENRY"
-            }
-        ]
-    }
-]
+{
+    "Codigo": "123",
+    "Nombre Ruta": "Ya",
+    "Modulo": [
+        {
+            "Codigo": "147",
+            "Nombre Modulo": "Cansado",
+            "Prioridad": "Extrema",
+            "Temarios": [
+                {
+                    "Temario": "Me"
+                },
+                {
+                    "Temario": "Quiero"
+                },
+                {
+                    "Temario": "Ir"
+                }
+            ]
+        }
+    ],
+    "Camper": [
+        {
+            "Nro Identificacion": "1095791057",
+            "Nombre": "Camilo",
+            "Apellido": "Franco",
+            "Direccion": "Cra 7#15-n33",
+            "Telefonos": [
+                {
+                    "Fijo": 3005452669
+                }
+            ],
+            "Acudiente": [],
+            "Estado": "Aprobado",
+            "Nota": [
+                {
+                    "Nro Identificacion": "1095791057",
+                    "Fecha": "mm",
+                    "Nota": 90
+                },
+                {
+                    "Nro Identificacion": "1095791057",
+                    "Fecha": "mm",
+                    "Nota": 38
+                }
+            ]
+        }
+    ]
+}

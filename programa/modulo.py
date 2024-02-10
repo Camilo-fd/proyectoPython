@@ -20,8 +20,7 @@ def crear():
         
     }
     for x in range(int(input("Numero de temarios: "))):
-        info["Temario"] = input("Nombre temario:")
-        info["Temarios"].append({"Temario": info["Temario"]})
+        info["Temarios"].append({"Temario":input("Nombre temario:")})
 
     modulo.append(info)
     with open("programa/datosJson/modulo.json", "w") as f:

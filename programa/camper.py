@@ -31,7 +31,8 @@ def guardar():
 
         ],
         "Acudiente": [],
-        "Estado": "Pre inscrito"
+        "Estado": "Pre inscrito",
+        "Nota": []
     }
     bandera = True
     while (bandera):
@@ -49,8 +50,7 @@ def guardar():
         elif edad >=18:
             bandera  = False
         elif 16 <= edad < 18:
-            info["Responsable"] = input("Ingrese su acudiente: ")
-            info["Acudiente"].append({"Responsable": info["Responsable"] })
+            info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})
         camper.append(info)
         with open("programa/datosJson/camper.json", "w") as f:
             data = json.dumps(camper, indent=4)
@@ -71,67 +71,71 @@ def editar():
         * Editar Camper *
         *****************
         """)
-        codigo = int(input("Escribe tu numero de registro: "))
-        print(f"""
+        listarCamper()
+        codigo = input("Ingrese el codigo del camper que deseas actualizar \n")
+        try:
+            codCamper = next(index for index, camp in enumerate(camper) if camp.get("Nro Identificacion") == codigo)
+            print(f"""
     ________________________
-    Codigo: {codigo}
-    Nro Identificacion: {camper[codigo].get('Nro Identificacion')}
-    Nombre: {camper[codigo].get('Nombre')}
-    Apellido: {camper[codigo].get('Apellido')}
-    Direccion: {camper[codigo].get('Direccion')}
-    Telefonos: {camper[codigo].get('Telefonos')}
-    Acudiente: {camper[codigo.get('Acudiente')]}
-    Estado: {camper[codigo].get('Estado')}
+    Nro Identificacion: {camper[codCamper].get('Nro Identificacion')}
+    Nombre: {camper[codCamper].get('Nombre')}
+    Apellido: {camper[codCamper].get('Apellido')}
+    Direccion: {camper[codCamper].get('Direccion')}
+    Telefonos: {camper[codCamper].get('Telefonos')}
+    Acudiente: {camper[codCamper].get('Acudiente')}
+    Estado: {camper[codCamper].get('Estado')}
     ________________________
         """)
-        print("¿Este es el camper que deseas actualizar?")
-        print("1. Si")
-        print("2. No")
-        print("3. Salir")
-        opc = int(input())
-        if(opc == 1):
-            info = {
-        "Nro Identificacion": int(input("Ingrese su numero de identificacion: ")),
-        "Nombre": input("Ingrese el nombre del camper: "),
-        "Apellido": input("Ingrese el apellido del camper: "),
-        "Direccion": input("Ingrese la direccion del camper: "),
-        "Telefonos": [
-            {
-                f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
-                int(input(f'Numero de contacto {x+1}: '))
-            }
+            print("¿Esta seguro de actualizar este camper?")
+            print("1. Si")
+            print("2. No")
+            print("3. Salir")
+            opc = int(input())
+            if(opc == 1):
+                info = {
+            "Nro Identificacion": int(input("Ingrese su numero de identificacion: ")),
+            "Nombre": input("Ingrese el nombre del camper: "),
+            "Apellido": input("Ingrese el apellido del camper: "),
+            "Direccion": input("Ingrese la direccion del camper: "),
+            "Telefonos": [
+                {
+                    f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
+                    int(input(f'Numero de contacto {x+1}: '))
+                }
 
-            for x in range(int(input("Ingrese la cantidad de telefonos: ")))
-        ],
-        # "Acudiente": [],
-        "Estado": input("")
-    }
-        # edad = int(input("Ingrese la edad del camper: "))
-        # if edad < 16:
-        #     print("No tienes la edad suficiente")
-        #     exit
-        # elif edad >=18:
-        #     exit
-        # elif 16 <= edad < 18:
-        #     info["Responsable"] = input("Ingrese su acudiente: ")
-        #     info["Acudiente"].append({
-        #         # "Edad": edad,
-        #         "Responsable": info["Responsable"]
-        #     })
-            camper[codigo] = info
-            with open("programa/datosJson/camper.json", "w") as f:
-                    data = json.dumps(camper, indent=4)
-                    f.write(data)
-                    f.close()
-            bandera = False
-            system("clear")
-        elif (opc == 2):
-            bandera = False
-            print("Suerte")
-        elif(opc == 3):
-            bandera = False
-            system("clear")
-    return "Edit to camper"
+                for x in range(int(input("Ingrese la cantidad de telefonos: ")))
+            ],
+            # "Acudiente": [],
+            "Estado": input("")
+        }
+            # edad = int(input("Ingrese la edad del camper: "))
+            # if edad < 16:
+            #     print("No tienes la edad suficiente")
+            #     exit
+            # elif edad >=18:
+            #     exit
+            # elif 16 <= edad < 18:
+            #     info["Responsable"] = input("Ingrese su acudiente: ")
+            #     info["Acudiente"].append({
+            #         # "Edad": edad,
+            #         "Responsable": info["Responsable"]
+            #     })
+                camper[codCamper] = info
+                with open("programa/datosJson/camper.json", "w") as f:
+                        data = json.dumps(camper, indent=4)
+                        f.write(data)
+                        f.close()
+                bandera = False
+                system("clear")
+            elif (opc == 2):
+                bandera = False
+                print("Suerte")
+            elif(opc == 3):
+                bandera = False
+                system("clear")
+        except StopIteration:
+                print("ERROR. no se encuentra ese codigo")
+        return "Edit to camper"
 
 def buscar():
     system("clear")
@@ -168,13 +172,8 @@ def buscar():
         """)
     return "The camper is avaliable"
 
-def listar():
+def listarCamper():
     system("clear")
-    print("""
-        *************************
-        *     Listar Camper     *
-        *************************
-          """)
     with open("programa/datosJson/camper.json") as f:
         campers = json.loads(f.read())
         f.close()
@@ -188,11 +187,23 @@ def printCamper(camper):
             Nombre: {camper["Nombre"]}
             Apellido: {camper["Apellido"]}
             Direccion: {camper["Direccion"]}
-            Telefonos: {camper("Telefonos")}
-            Acudiente: {camper["Acudiente"]}
+            Telefonos: {camper["Telefonos"]}
+            Acudiente: {listadoacudiente(camper)}
             Estado: {camper["Estado"]}
             -----------------------------------
               """)
+    
+def listadoacudiente(camper):
+            for i in camper["Acudiente"]:
+                return(f"""
+                    Responsable: {i["Responsable"]}
+                      """)
+
+def listadotelefonos(camper):
+    for i in camper["Telefonos"]:
+        return(f"""
+                Telefonos: {i["Responsable"]}
+                  """)
     
 def borrar():
     bandera = True
@@ -203,49 +214,54 @@ def borrar():
         * Eliminar Camper  *
         ********************
         """)
-        codigo = int(input("Ingrese el codigo del camper que deseas eliminar: "))
-        print(f"""
+        listarCamper()
+        codigo = input("Ingrese el codigo del camper que deseas actualizar \n")
+        try:
+            codCamper = next(index for index, camp in enumerate(camper) if camp.get("Nro Identificacion") == codigo)
+            print(f"""
     ________________________
-    Codigo: {codigo}
-    Nro Identificacion: {camper[codigo].get('Nro Identificacion')}
-    Nombre: {camper[codigo].get('Nombre')}
-    Apellido: {camper[codigo].get('Apellido')}
-    Direccion: {camper[codigo].get('Direccion')}
-    Telefonos: {camper[codigo].get('Telefonos')}
-    Acudiente: {camper[codigo].get('Acudiente')}
-    Estado: {camper[codigo].get('Estado')}
+    Nro Identificacion: {camper[codCamper].get('Nro Identificacion')}
+    Nombre: {camper[codCamper].get('Nombre')}
+    Apellido: {camper[codCamper].get('Apellido')}
+    Direccion: {camper[codCamper].get('Direccion')}
+    Telefonos: {camper[codCamper].get('Telefonos')}
+    Acudiente: {camper[codCamper].get('Acudiente')}
+    Estado: {camper[codCamper].get('Estado')}
     ________________________
         """)
-        print("¿Este es el camper que deseas eliminar?")
-        print("1. Si")
-        print("2. No")
-        print("3. Salir")
-        opc = int(input())
-        if(opc == 1):
-            camper.pop(codigo)
-            with open("programa/datosJson/camper.json", "w") as f:
-                data = json.dumps(camper, indent=4)
-                f.write(data)
-                f.close()
-            bandera = False
-        elif(opc == 2):
-            print("________________________")
-            print("Que desea hacer entonces?")
-            print("1. Volver al menu")
-            print("2. Eliminar camper")
-            opc2 = int(input())
-            if (opc2 == 1):
-                system("clear")
-                menu()
-            elif (opc2 == 2):
-                system("clear")
-                camper.pop(codigo)
+        
+            print("¿Este es el camper que deseas eliminar?")
+            print("1. Si")
+            print("2. No")
+            print("3. Salir")
+            opc = int(input())
+            if(opc == 1):
+                camper.pop(codCamper)
                 with open("programa/datosJson/camper.json", "w") as f:
                     data = json.dumps(camper, indent=4)
                     f.write(data)
                     f.close()
-        elif(opc == 3):
-            bandera = False
+                bandera = False
+            elif(opc == 2):
+                print("________________________")
+                print("Que desea hacer entonces?")
+                print("1. Volver al menu")
+                print("2. Eliminar camper")
+                opc2 = int(input())
+                if (opc2 == 1):
+                    system("clear")
+                    menu()
+                elif (opc2 == 2):
+                    system("clear")
+                    camper.pop(codigo)
+                    with open("programa/datosJson/camper.json", "w") as f:
+                        data = json.dumps(camper, indent=4)
+                        f.write(data)
+                        f.close()
+            elif(opc == 3):
+                bandera = False
+        except StopIteration:
+                print("ERROR. no se encuentra ese codigo")
     return "Camper deleted"
 
 def menu():
@@ -277,7 +293,7 @@ def menu():
                 editar()
             case 3:
                 system("clear")
-                buscar()
+                listarCamper()
             case 4:
                 system("clear")
                 borrar()

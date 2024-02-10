@@ -1,20 +1,27 @@
 [
     {
-        "Nro Identificacion": "2332",
-        "Nombre": "da",
-        "Apellido": "asfas",
-        "Direccion": "faafs",
+        "Nro Identificacion": "1095791057",
+        "Nombre": "Camilo",
+        "Apellido": "Franco",
+        "Direccion": "Cra 7#15-n33",
         "Telefonos": [
             {
-                "Fijo": 323232323
+                "Fijo": 3005452669
             }
         ],
-        "Acudiente": [
+        "Acudiente": [],
+        "Estado": "Aprobado",
+        "Nota": [
             {
-                "Responsable": "nnn"
+                "Nro Identificacion": "1095791057",
+                "Fecha": "mm",
+                "Nota": 90
+            },
+            {
+                "Nro Identificacion": "1095791057",
+                "Fecha": "mm",
+                "Nota": 38
             }
-        ],
-        "Estado": "Pre inscrito",
-        "Responsable": "nnn"
+        ]
     }
 ]

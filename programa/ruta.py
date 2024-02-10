@@ -1,7 +1,9 @@
 import json
 from os import system
-from .datos import ruta, modulo
+from programa.camper import listarCamper
+from .datos import ruta, modulo, camper
 from programa.modulo import modulo
+from programa.camper import camper as campermodulo
 
 def ingresar():
     while True:
@@ -21,7 +23,8 @@ def ingresar():
     info = {
         "Codigo": codigo,
         "Nombre Ruta": input("Nombre de la ruta: "),
-        "Modulo": []
+        "Modulo": [],
+        "Camper": []
     }
 
     ruta.append(info)
@@ -34,7 +37,7 @@ def ingresar():
     print("Ruta registrada correctamente")
     print("                               ")
 
-def listar():
+def listarRuta():
     system("clear")
     print(f"""
     ******************
@@ -153,7 +156,6 @@ def asigarmodulo():
         codmod = int(input("Codigo de modulo: "))
         for i,val in enumerate(modulos):
             if (val.get('Codigo') == codmod):
-                # printModulo(modulos[codmod])
                 print("Asignacion Exitosa")
                 print("                  ")
                 varMod = i
@@ -170,6 +172,27 @@ def asigarmodulo():
             print("Modulo asignado correctamente")
             break
 
+def asignarCamper():
+    with open("programa/datosJson/camper.json", "r") as f:
+        camper = json.loads(f.read())
+    print("""
+        *************************
+        * Asignar Camper a Ruta *
+        *************************
+        """)
+    listarCamper()
+    codCamper = input("Nro Identificacion del camper: ")
+    listarRuta()
+    codRuta = input("Codigo Ruta: ")
+    for rutas in ruta:
+        if rutas.get("Codigo") == codRuta:
+            for campers in camper:
+                if campers.get("Nro Identificacion") == codCamper:
+                    rutas["Camper"].append(campers)
+    with open("programa/datosJson/ruta.json", "w") as f:
+            rutas = json.dumps(rutas, indent=4)
+            f.write(rutas)
+            f.close()
 
 def menu():
     bandera = True
@@ -183,14 +206,10 @@ def menu():
     -     2. Editar Ruta                    -
     -     3. Buscar Ruta                    -
     -     4. Asignar modulo                 -
+    -     5. Asignar Camper                 -
     -     0. Salir                          -
     -----------------------------------------
 """)
-        print("\t1. Registrar Ruta")
-        print("\t2. Editar Ruta")
-        print("\t3. Buscar RUta")
-        print("\t4. Asiganar modulo")
-        print("\t0. Salir")
         try:
             opc = int(input())
         except ValueError:
@@ -205,10 +224,12 @@ def menu():
                 editar()
             case 3:
                 system("clear")
-                listar()
+                listarRuta()
             case 4:
                 system("clear")
                 asigarmodulo()
+            case 5:
+                asignarCamper()
             case 0:
                 system("clear")
                 bandera = False

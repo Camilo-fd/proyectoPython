@@ -62,6 +62,10 @@ def asignarCamper():
             print("Camper asignado correctamente")
             break
         
+
+def asignarRuta():
+    print()
+
 def menu():
     bandera = True
     while (bandera):

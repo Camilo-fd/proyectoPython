@@ -1,19 +1,18 @@
 [
     {
-        "Codigo": "1232",
-        "Nombre Modulo": "Karen",
-        "Prioridad": "NUlA",
+        "Codigo": "147",
+        "Nombre Modulo": "Cansado",
+        "Prioridad": "Extrema",
         "Temarios": [
             {
-                "Temario": "FUNDAMENTOS KAREN"
+                "Temario": "Me"
             },
             {
-                "Temario": "KAREN"
+                "Temario": "Quiero"
             },
             {
-                "Temario": "HENRY"
+                "Temario": "Ir"
             }
-        ],
-        "Temario": "HENRY"
+        ]
     }
 ]
