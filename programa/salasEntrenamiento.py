@@ -9,7 +9,7 @@ def ingresarSalas():
         "Capacidad Maxima": print("Capacidad Maxima 33")
     }
     salasEntrenamiento.append(info)
-    with open("programa/datosJson/camper.json", "w") as f:
+    with open("programa/datosJson/salasEntrenamiento.json", "w") as f:
         data = json.dumps(salasEntrenamiento, indent=4)
         f.write(data)
         f.close()

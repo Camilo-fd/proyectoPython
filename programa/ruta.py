@@ -13,8 +13,8 @@ def ingresar():
         *******************
         """)
         codigo = input("Codigo Ruta: ")
-        for modulos in modulo:
-                if modulos["Codigo"] == codigo:
+        for rutas in ruta:
+                if rutas["Codigo"] == codigo:
                     print("                                                           ")
                     print("Este codigo de ruta ya esta creado, ingrese uno diferente")
                     break
@@ -105,7 +105,7 @@ def printRuta(ruta): # IMPRIMO LA RUTA LINDO
             --------------------------------------------------
               """)
 
-def listadoruta(ruta): # LISTO LA RUTA 
+def listadoruta(ruta): # LISTO EL MODULO
             for i in ruta["Modulo"]:
                 return(f"""
                     Codigo: {i["Codigo"]}
@@ -142,10 +142,9 @@ def asigarmodulo():
         f.close()
     for ruta in rutas:
         printRuta(ruta)
-    codruta = int(input("Codigo Ruta: "))
+    codruta = input("Codigo Ruta: ")
     for i,val in enumerate(rutas):
         if (val.get('Codigo') == codruta):
-            printRuta(rutas[codruta])
             varRuta = i
     with open("programa/datosJson/modulo.json", "r") as f:
         modulos = json.loads(f.read())
@@ -153,11 +152,9 @@ def asigarmodulo():
     for modulo in modulos:
         printModulo(modulo)
     while True:
-        codmod = int(input("Codigo de modulo: "))
+        codmod = input("Codigo de modulo: ")
         for i,val in enumerate(modulos):
             if (val.get('Codigo') == codmod):
-                print("Asignacion Exitosa")
-                print("                  ")
                 varMod = i
         rutas[varRuta]["Modulo"].append(modulos[varMod])
         with open("programa/datosJson/ruta.json", "w") as f:
@@ -172,9 +169,10 @@ def asigarmodulo():
             print("Modulo asignado correctamente")
             break
 
-def asignarCamper():
+def asignarCamper(): #ERROR !ARREGLARLO URGENTE! BORRA LO QUE HAY EN EL JSON
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
+        f.close()
     print("""
         *************************
         * Asignar Camper a Ruta *
@@ -182,6 +180,9 @@ def asignarCamper():
         """)
     listarCamper()
     codCamper = input("Nro Identificacion del camper: ")
+    with open("programa/datosJson/ruta.json", "r") as f:
+        ruta = json.loads(f.read())
+        f.close()
     listarRuta()
     codRuta = input("Codigo Ruta: ")
     for rutas in ruta:
@@ -191,8 +192,6 @@ def asignarCamper():
                     rutas["Camper"].append(campers)
     with open("programa/datosJson/ruta.json", "w") as f:
             rutas = json.dumps(rutas, indent=4)
-            f.write(rutas)
-            f.close()
 
 def menu():
     bandera = True

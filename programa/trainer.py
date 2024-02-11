@@ -1,7 +1,9 @@
 import json
 from os import system
-from .datos import trainer
+from .datos import trainer, camper
 from .valido import menuNoValid
+from programa.camper import listarCamper
+from programa.camper import camper
 
 def guardar():
     print("""
@@ -11,7 +13,8 @@ def guardar():
         """)
     info = {
         "Nro Identificacion": input("Ingrese el numero de identificacion: "),
-        "Nombre completo": input("Ingrese el nombre completo: ")
+        "Nombre completo": input("Ingrese el nombre completo: "),
+        "Camper": []
     }
     trainer.append(info)
     with open("programa/datosJson/trainer.json", "w") as f:
@@ -27,32 +30,55 @@ def buscar():
     *  Buscar Trainer  *
     *******************
     """)
-    for i,val in enumerate(trainer):
+    codigo = input("Ingrese el Nro Identificacion del camper que deseas buscar: ")
+    try:
+        codTrainer = next(index for index, camp in enumerate(trainer) if camp.get("Nro Identificacion") == codigo)
         print(f"""
     ____________________________
-    Codigo: {i}
-    Nro Identificacion: {val.get('Nro Identificacion')}
-    Nombre completo: {val.get('Nombre completo')}
+    Nro Identificacion: {trainer[codTrainer].get('Nro Identificacion')}
+    Nombre completo: {trainer[codTrainer].get('Nombre completo')}
     ____________________________
         """)
+    except StopIteration:
+                print("ERROR. no se encuentra ese codigo")
     return "El camper esta disponible"
+
+def listarTrainer():
+    system("clear")
+    with open("programa/datosJson/trainer.json") as f:
+        traienrss = json.loads(f.read())
+        f.close()
+    for trainers in traienrss:
+        printTrainer(trainers)
+
+def printTrainer(trainer):
+    print(f"""
+            ----------------TRAINER-------------
+            Nro Identificacion: {trainer["Nro Identificacion"]}
+            Nombre Completo: {trainer["Nombre completo"]}
+            -----------------------------------
+              """)
 
 def asignarCamper():
     with open("programa/datosJson/trainer.json", "r") as f:
         trainer = json.loads(f.read())
         f.close()
-    codtra = int(input("Codigo de trainer: "))
-    print(f"{trainer[codtra]}")
+        listarTrainer()
+    codtra = input("Nro Identificacion de trainer: ")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
         f.close()
+        listarCamper()
     while True:
-        codcamp = int(input("Codigo de modulo: "))
-        print(camper[codcamp])
-        rutas[codtra]["Modulo"].append(camper[codcamp])
+        codcamp = input("Nro Identificacion de camper: ")
+        for trainers in trainer:
+            if trainers.get("Nro Identificacion") == codtra:
+                for campers in camper:
+                    if campers.get("Nro Identificacion") == codcamp:
+                        trainer["Camper"].append(campers)
         with open("programa/datosJson/trainer.json", "w") as f:
-            rutas = json.dumps(rutas, indent=4)
-            f.write(rutas)
+            trainer = json.dumps(trainer, indent=4)
+            f.write(trainer)
             f.close()
         opc = int(input("Quieres asigar otro camper?\n1.Si\n2.No\n "))
         if opc == 1:
@@ -90,7 +116,7 @@ def menu():
                 guardar()
             case 2:
                 system("clear")
-                buscar()
+                listarTrainer()
             case 3:
                 system("clear")
                 asignarCamper()

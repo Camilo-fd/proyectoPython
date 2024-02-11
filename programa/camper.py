@@ -72,7 +72,7 @@ def editar():
         *****************
         """)
         listarCamper()
-        codigo = input("Ingrese el codigo del camper que deseas actualizar \n")
+        codigo = input("Ingrese el Nro Identificacion del camper que deseas actualizar: ")
         try:
             codCamper = next(index for index, camp in enumerate(camper) if camp.get("Nro Identificacion") == codigo)
             print(f"""
@@ -105,21 +105,10 @@ def editar():
 
                 for x in range(int(input("Ingrese la cantidad de telefonos: ")))
             ],
-            # "Acudiente": [],
-            "Estado": input("")
+            "Acudiente": [info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})],
+            "Estado": input("Estado: ")
         }
-            # edad = int(input("Ingrese la edad del camper: "))
-            # if edad < 16:
-            #     print("No tienes la edad suficiente")
-            #     exit
-            # elif edad >=18:
-            #     exit
-            # elif 16 <= edad < 18:
-            #     info["Responsable"] = input("Ingrese su acudiente: ")
-            #     info["Acudiente"].append({
-            #         # "Edad": edad,
-            #         "Responsable": info["Responsable"]
-            #     })
+                # info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})
                 camper[codCamper] = info
                 with open("programa/datosJson/camper.json", "w") as f:
                         data = json.dumps(camper, indent=4)
@@ -129,7 +118,7 @@ def editar():
                 system("clear")
             elif (opc == 2):
                 bandera = False
-                print("Suerte")
+                editar
             elif(opc == 3):
                 bandera = False
                 system("clear")
@@ -188,7 +177,7 @@ def printCamper(camper):
             Apellido: {camper["Apellido"]}
             Direccion: {camper["Direccion"]}
             Telefonos: {camper["Telefonos"]}
-            Acudiente: {listadoacudiente(camper)}
+            Acudiente: {camper["Acudiente"]}
             Estado: {camper["Estado"]}
             -----------------------------------
               """)

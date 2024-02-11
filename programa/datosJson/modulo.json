@@ -1,17 +1,14 @@
 [
     {
-        "Codigo": "147",
-        "Nombre Modulo": "Cansado",
-        "Prioridad": "Extrema",
+        "Codigo": "XXX",
+        "Nombre Modulo": "Sapa",
+        "Prioridad": "Ex",
         "Temarios": [
             {
-                "Temario": "Me"
+                "Temario": "Manu"
             },
             {
-                "Temario": "Quiero"
-            },
-            {
-                "Temario": "Ir"
+                "Temario": "Ela"
             }
         ]
     }

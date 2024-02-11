@@ -1,27 +1,34 @@
 [
     {
-        "Nro Identificacion": "1095791057",
-        "Nombre": "Camilo",
-        "Apellido": "Franco",
-        "Direccion": "Cra 7#15-n33",
+        "Nro Identificacion": 10,
+        "Nombre": "Timmy",
+        "Apellido": "Aron",
+        "Direccion": "Michi",
         "Telefonos": [
             {
                 "Fijo": 3005452669
             }
         ],
-        "Acudiente": [],
-        "Estado": "Aprobado",
-        "Nota": [
+        "Acudiente": [
+            "nev"
+        ],
+        "Estado": "Inscrito"
+    },
+    {
+        "Nro Identificacion": 77,
+        "Nombre": "n",
+        "Apellido": "m",
+        "Direccion": "v",
+        "Telefonos": [
             {
-                "Nro Identificacion": "1095791057",
-                "Fecha": "mm",
-                "Nota": 90
-            },
-            {
-                "Nro Identificacion": "1095791057",
-                "Fecha": "mm",
-                "Nota": 38
+                "Fijo": 663
             }
-        ]
+        ],
+        "Acudiente": [
+            {
+                "Responsable": "asd"
+            }
+        ],
+        "Estado": "Inscrito"
     }
 ]
