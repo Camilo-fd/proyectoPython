@@ -106,8 +106,8 @@ def editar():
 
                 for x in range(int(input("Ingrese la cantidad de telefonos: ")))
             ],
-            "Acudiente": [info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})],
-            "Estado": input("Estado: ")
+            # "Acudiente": [info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})],
+            "Estado": "Pre Inscrito"
         }
                 # info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})
                 camper[codCamper] = info
@@ -177,14 +177,15 @@ def printCamper(camper):
             Nombre: {camper["Nombre"]}
             Apellido: {camper["Apellido"]}
             Direccion: {camper["Direccion"]}
-            Telefonos: {camper["Telefonos"]}
+            Telefonos: {"".join([f"{list(camper['Telefonos'][ind].keys())[0]}: {list(camper['Telefonos'][ind].values())[0]}" for ind,val in enumerate(camper["Telefonos"])])}
             Acudiente: {camper["Acudiente"]}
             Estado: {camper["Estado"]}
             Nota: {camper["Nota"]}
             Nota Modulo: {camper["Nota Modulo"]}
             -----------------------------------
-              """)
-    
+              """) 
+
+
 def listadoacudiente(camper):
             for i in camper["Acudiente"]:
                 return(f"""

@@ -11,12 +11,13 @@ def pruebaSeleccion():
         "Fecha": input("Fecha: "),
         "Nota": notaSeleccion()
     }
-    notas.append(info)
-    with open("programa/datosJson/notas.json", "w") as f:
-        data = json.dumps(notas, indent=4)
-        f.write(data)
-        f.close()
-        system("clear")
+    # notas.append(info)
+    # with open("programa/datosJson/notas.json", "w") as f:
+    #     data = json.dumps(notas, indent=4)
+    #     f.write(data)
+    #     f.close()
+    #     system("clear")
+    return info
 
 def notaSeleccion():
     notaPractica = int(input("Nota Practica: "))
@@ -25,34 +26,42 @@ def notaSeleccion():
     return promedio
 
 def asignarPrueba(): #Inicial
-        with open("programa/datosJson/camper.json", "r") as f:
-                camper = json.loads(f.read())
-                f.close()
-                for item in camper:
-                    for key, value in item.items():
-                        print(f"{key}: {value}")
-                    print("")
-        codigoCamper = input("Nro Identificacion del camper: ")
-        with open("programa/datosJson/notas.json", "r") as f:
-            nota = json.loads(f.read())
+    with open("programa/datosJson/camper.json", "r") as f:
+            camper = json.loads(f.read())
             f.close()
-            for item in nota:
-                for key, value in item.items():
-                    print(f"{key}: {value}")
-                print("")
-        for campers in camper:
+            listarCamper()
+    codigoCamper = input("Nro Identificacion del camper: ")
+    with open("programa/datosJson/notas.json", "r") as f:
+        nota = json.loads(f.read())
+        f.close()
+    print("                                   ")
+    print("-----------------------------------")
+    info = pruebaSeleccion()
+    nota.append(info)
+    with open("programa/datosJson/notas.json","w") as f:
+        data = json.dumps(nota, indent=4)
+        f.write(data)
+        f.close()
+        system("clear")
+    for item in nota:
+        print("\t    --------------NOTA-------------")
+        for key, value in item.items():
+            print(f"\t    {key}: {value}")
+        print("\t    -------------------------------")
+    for campers in camper:
             if campers.get("Nro Identificacion") == codigoCamper:
                 for notas in nota:
                     if notas.get("Nro Identificacion") == codigoCamper:
                         campers["Nota"].append(notas)
                         if notas.get("Nota") >= 60:
                             campers["Estado"] = "Inscrito"
-        with open("programa/datosJson/camper.json", "w") as f:
-            campers = json.dumps(camper, indent=4)
-            f.write(campers)
-            f.close()
+    with open("programa/datosJson/camper.json", "w") as f:
+        campers = json.dumps(camper, indent=4)
+        f.write(campers)
+        f.close()
 
 def notaModulo():
+    
     info = {
         "Nro Identificacion": input("Nro Identificacion Camper: "),
         "Codigo": input("Codigo Modulo: "),
@@ -60,12 +69,13 @@ def notaModulo():
         "Fecha": input("Fecha: "),
         "Nro Identificaion Trainer": input("Nro Identificacion Trainer: ")
     }
-    notasModulo.append(info)
-    with open("programa/datosJson/notasModulo.json", "w") as f:
-        data = json.dumps(notasModulo, indent=4)
-        f.write(data)
-        f.close()
-        system("clear")
+    # notasModulo.append(info)
+    # with open("programa/datosJson/notasModulo.json", "w") as f:
+    #     data = json.dumps(notasModulo, indent=4)
+    #     f.write(data)
+    #     f.close()
+    #     system("clear")
+    return info
 
 def calculosnotaModulo():
     notaProyecto = int(input("Nota Proyecto: "))
@@ -84,10 +94,20 @@ def asignarNotamodulo():
     with open("programa/datosJson/notasModulo.json", "r") as f:
         notasModulo = json.loads(f.read())
         f.close()
-        for item in notasModulo:
-            for key, value in item.items():
-                print(f"{key}: {value}")
-            print("")
+    print("                                   ")
+    print("-----------------------------------")
+    info = notaModulo()
+    notasModulo.append(info)
+    with open("programa/datosJson/notasModulo.json","w") as f:
+        data = json.dumps(notasModulo, indent=4)
+        f.write(data)
+        f.close()
+        system("clear")
+    for item in notasModulo:
+        print("\t    ----------NOTA MODULO----------")
+        for key, value in item.items():
+            print(f"\t    {key}: {value}")
+        print("\t    -------------------------------")
     for campers in camper:
             if campers.get("Nro Identificacion") == codigoCamper:
                 for notas in notasModulo:
@@ -109,11 +129,9 @@ def menu():
     -----------------------------------------
     -             MENU NOTAS                -
     -----------------------------------------
-    -     1. Ingresar Notas                 -
-    -     2. Asignar Prueba Seleccion       -
-    -     3. Nota Modulo                    -
-    -     4. Eliminar Notas                 -
-    -     5. Asignar Nota Modulo            -
+    -     1. Asignar Prueba Seleccion       -
+    -     2. Asignar Nota Modulo            -
+    -     3. Eliminar                       -
     -     0. Salir                          -
     -----------------------------------------
 """)
@@ -125,19 +143,15 @@ def menu():
         match(opc):
             case 1:
                 system("clear")
-                pruebaSeleccion()
+                asignarPrueba()
             case 2:
                 system("clear")
-                asignarPrueba()
+                asignarNotamodulo()
             case 3:
                 system("clear")
-                notaModulo()
-            case 5:
-                system("clear")
-                asignarNotamodulo()
             case 0:
                 system("clear")
                 bandera = False
             case _:
                 system("clear")
-                menuNoValid(opc)
+                menuNoValid(opc)()

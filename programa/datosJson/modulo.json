@@ -1,11 +1,17 @@
 [
     {
-        "Codigo": "99",
-        "Nombre Modulo": "APRENDIENDO",
+        "Codigo": "01",
+        "Nombre Modulo": "Fundamentos de programaci\u00f3n",
         "Prioridad": "ALTA",
         "Temarios": [
             {
-                "Temario": "PAYYY"
+                "Temario": "Introducci\u00f3n a la algoritmia"
+            },
+            {
+                "Temario": "PSeInt"
+            },
+            {
+                "Temario": "Python"
             }
         ]
     },
@@ -22,22 +28,6 @@
             },
             {
                 "Temario": "BOOTSTRAP"
-            }
-        ]
-    },
-    {
-        "Codigo": "01",
-        "Nombre Modulo": "Fundamentos de programaci\u00f3n",
-        "Prioridad": "ALTA",
-        "Temarios": [
-            {
-                "Temario": "Introducci\u00f3n a la algoritmia"
-            },
-            {
-                "Temario": "PSeInt"
-            },
-            {
-                "Temario": "Python"
             }
         ]
     },

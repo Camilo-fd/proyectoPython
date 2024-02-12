@@ -6,13 +6,29 @@
         "Direccion": "cra 7 # 15-n33",
         "Telefonos": [
             {
-                "Celular": 3005452669
+                "Celular": 3005452669 
             }
         ],
         "Acudiente": [],
         "Estado": "Aprovado",
-        "Nota": [],
-        "Nota Modulo": []
+        "Nota": [
+            {
+                "Nro Identificacion": "1095791057",
+                "Fecha": "12/12/2023",
+                "Nota": 71
+            }
+        ],
+        "Nota Modulo": [
+            [
+                {
+                    "Nro Identificacion": "1095791057",
+                    "Codigo": "01",
+                    "Total": 65,
+                    "Fecha": "12/12/2023",
+                    "Nro Identificaion Trainer": "999"
+                }
+            ]
+        ]
     },
     {
         "Nro Identificacion": "1901162005",
@@ -32,31 +48,5 @@
         "Estado": "Inscrito",
         "Nota": [],
         "Nota Modulo": []
-    },
-    {
-        "Nro Identificacion": "100",
-        "Nombre": "MM",
-        "Apellido": "NN",
-        "Direccion": "A",
-        "Telefonos": [
-            {
-                "Fijo": 6523
-            }
-        ],
-        "Acudiente": [],
-        "Estado": "Aprovado",
-        "Nota": [],
-        "Nota Modulo": [
-            [
-                {
-                    "Nro Identificacion": "100",
-                    "Codigo": "99",
-                    "Total": 65,
-                    "Fecha": "\u00f1l",
-                    "Nro Identificaiones": "321",
-                    "Aprobado": ""
-                }
-            ]
-        ]
     }
 ]

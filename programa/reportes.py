@@ -7,17 +7,16 @@ def camperInscrito():
         camper = json.loads(f.read())
         for i,campers in enumerate(camper):
             if camper[i]["Estado"] == "Inscrito":
-                # print(campers[i]["Nro Identificacion"])
-                # print(f"Nro Identificacion: {campers['Nro Identificacion']}")
-                # print(f"Nombre: {campers['Nombre']}")
-                # print(f"Apellido: {campers['Apellido']}")
-                # print(f"Direccion: {campers['Direccion']}")
-                # print(f"Telefonos: {campers['Telefonos']}")
-                # print(f"Acudiente: {campers['Acudiente']}")
-                # print(f"Estado: {campers['Estado']}")
-                # print(f"Nota: {campers['Nota']}")
-                # print(f"Nota Modulo: {campers['Nota Modulo']}")
-                print(json.dumps(campers, indent=4))
+                print(f"Nro Identificacion: {campers['Nro Identificacion']}")
+                print(f"Nombre: {campers['Nombre']}")
+                print(f"Apellido: {campers['Apellido']}")
+                print(f"Direccion: {campers['Direccion']}")
+                print(f"Telefonos: {campers['Telefonos']}")
+                print(f"Acudiente: {campers['Acudiente']}")
+                print(f"Estado: {campers['Estado']}")
+                print(f"Nota: {campers['Nota']}")
+                print(f"Nota Modulo: {campers['Nota Modulo']}")
+                # print(json.dumps(campers, indent=4))
 
 def camperAprovado():
     with open("programa/datosJson/camper.json", "r") as f:
