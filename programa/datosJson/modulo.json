@@ -8,5 +8,72 @@
                 "Temario": "PAYYY"
             }
         ]
+    },
+    {
+        "Codigo": "02",
+        "Nombre Modulo": "Programacion Web",
+        "Prioridad": "Alta",
+        "Temarios": [
+            {
+                "Temario": "HTML"
+            },
+            {
+                "Temario": "CSS"
+            },
+            {
+                "Temario": "BOOTSTRAP"
+            }
+        ]
+    },
+    {
+        "Codigo": "01",
+        "Nombre Modulo": "Fundamentos de programaci\u00f3n",
+        "Prioridad": "ALTA",
+        "Temarios": [
+            {
+                "Temario": "Introducci\u00f3n a la algoritmia"
+            },
+            {
+                "Temario": "PSeInt"
+            },
+            {
+                "Temario": "Python"
+            }
+        ]
+    },
+    {
+        "Codigo": "03",
+        "Nombre Modulo": "Bases de datos",
+        "Prioridad": "ALTA",
+        "Temarios": [
+            {
+                "Temario": "Mysql"
+            },
+            {
+                "Temario": "Mysql"
+            },
+            {
+                "Temario": "Postgresql"
+            }
+        ]
+    },
+    {
+        "Codigo": "04",
+        "Nombre Modulo": "Backend",
+        "Prioridad": "ALTA",
+        "Temarios": [
+            {
+                "Temario": "NetCore"
+            },
+            {
+                "Temario": "Spring Boot"
+            },
+            {
+                "Temario": "NodeJS"
+            },
+            {
+                "Temario": "Express"
+            }
+        ]
     }
 ]

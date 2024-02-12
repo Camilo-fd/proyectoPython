@@ -11,11 +11,12 @@
         ],
         "Acudiente": [],
         "Estado": "Aprovado",
-        "Nota": []
+        "Nota": [],
+        "Nota Modulo": []
     },
     {
         "Nro Identificacion": "1901162005",
-        "Nombre": "Andres.",
+        "Nombre": "Andres",
         "Apellido": "Duran",
         "Direccion": "Campus",
         "Telefonos": [
@@ -29,7 +30,8 @@
             }
         ],
         "Estado": "Inscrito",
-        "Nota": []
+        "Nota": [],
+        "Nota Modulo": []
     },
     {
         "Nro Identificacion": "100",
@@ -42,7 +44,19 @@
             }
         ],
         "Acudiente": [],
-        "Estado": "Pre inscrito",
-        "Nota": []
+        "Estado": "Aprovado",
+        "Nota": [],
+        "Nota Modulo": [
+            [
+                {
+                    "Nro Identificacion": "100",
+                    "Codigo": "99",
+                    "Total": 65,
+                    "Fecha": "\u00f1l",
+                    "Nro Identificaiones": "321",
+                    "Aprobado": ""
+                }
+            ]
+        ]
     }
 ]

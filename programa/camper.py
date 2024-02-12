@@ -32,7 +32,8 @@ def guardar():
         ],
         "Acudiente": [],
         "Estado": "Pre inscrito",
-        "Nota": []
+        "Nota": [],
+        "Nota Modulo": []
     }
     bandera = True
     while (bandera):
@@ -179,6 +180,8 @@ def printCamper(camper):
             Telefonos: {camper["Telefonos"]}
             Acudiente: {camper["Acudiente"]}
             Estado: {camper["Estado"]}
+            Nota: {camper["Nota"]}
+            Nota Modulo: {camper["Nota Modulo"]}
             -----------------------------------
               """)
     

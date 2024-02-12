@@ -23,6 +23,7 @@ def menu():
     -     5. Modulos                        -
     -     6. Horarios                       -
     -     7. Salas Entrenamiento            -
+    -     8. Reportes                       -
     -     0. Salir                          -
     -----------------------------------------
 """)

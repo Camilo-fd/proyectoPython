@@ -1,15 +1,21 @@
 [
     {
         "Codigo": "F01",
-        "Nombre Ruta": "FUNDAMENTO",
+        "Nombre Ruta": "Ruta NodeJS",
         "Modulo": [
             {
-                "Codigo": "99",
-                "Nombre Modulo": "APRENDIENDO",
+                "Codigo": "01",
+                "Nombre Modulo": "Fundamentos de programaci\u00f3n",
                 "Prioridad": "ALTA",
                 "Temarios": [
                     {
-                        "Temario": "PAYYY"
+                        "Temario": "Introducci\u00f3n a la algoritmia"
+                    },
+                    {
+                        "Temario": "PSeInt"
+                    },
+                    {
+                        "Temario": "Python"
                     }
                 ]
             }
@@ -33,15 +39,32 @@
         "Trainer": [
             {
                 "Nro Identificacion": "321",
-                "Nombre completo": "sONIA",
+                "Nombre completo": "MIguel Castro",
                 "Camper": []
             }
         ]
     },
     {
         "Codigo": "F02",
-        "Nombre Ruta": "PYTHON",
-        "Modulo": [],
+        "Nombre Ruta": "Ruta Java",
+        "Modulo": [
+            {
+                "Codigo": "02",
+                "Nombre Modulo": "Programacion Web",
+                "Prioridad": "Alta",
+                "Temarios": [
+                    {
+                        "Temario": "HTML"
+                    },
+                    {
+                        "Temario": "CSS"
+                    },
+                    {
+                        "Temario": "BOOTSTRAP"
+                    }
+                ]
+            }
+        ],
         "Camper": [],
         "Trainer": []
     }
