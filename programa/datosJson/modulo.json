@@ -1,14 +1,11 @@
 [
     {
-        "Codigo": "XXX",
-        "Nombre Modulo": "Sapa",
-        "Prioridad": "Ex",
+        "Codigo": "99",
+        "Nombre Modulo": "APRENDIENDO",
+        "Prioridad": "ALTA",
         "Temarios": [
             {
-                "Temario": "Manu"
-            },
-            {
-                "Temario": "Ela"
+                "Temario": "PAYYY"
             }
         ]
     }

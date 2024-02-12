@@ -1,7 +1,7 @@
 from programa.camper import camper
 from os import system
 from .valido import menuNoValid
-from .datos import notas,camper
+from .datos import notas,camper,notasModulo
 import json
 
 def pruebaSeleccion():  
@@ -23,7 +23,7 @@ def notaSeleccion():
     promedio = int((notaPractica+notaTeorica) / 2)
     return promedio
 
-def asignarPrueba():
+def asignarPrueba(): #Inicial
         with open("programa/datosJson/camper.json", "r") as f:
                 camper = json.loads(f.read())
                 f.close()
@@ -51,14 +51,29 @@ def asignarPrueba():
             f.write(campers)
             f.close()
 
-# def notasCamper():
-#     info = {
-#         "Nro Identificacion": int(input("Nro Identificacion Camper: ")),
-#         "Codigo": input("Codigo Modulo: "),
-#         "Notas Proyecto": int(input("Nota Proyecto: ")),
-#         "Notas Generales": [],
-#         "Total": 
-#     }
+def notaModulo():
+    info = {
+        "Nro Identificacion": input("Nro Identificacion Camper: "),
+        "Codigo": input("Codigo Modulo: "),
+        "Total": calculosnotaModulo(),
+        "Fecha": input("Fecha: "),
+        "Nro Identificaiones": input("Nro Identificacion Trainer: "),
+        "Aprobado": ""
+    }
+    notasModulo.append(info)
+    with open("programa/datosJson/notasModulo.json", "w") as f:
+        data = json.dumps(data, indent=4)
+        f.write(data)
+        f.close()
+        system("clear")
+
+def calculosnotaModulo():
+    notaProyecto = int(input("Nota Proyecto: "))
+    notaExamen = int(input("Nota Examen: "))
+    notaGenerales = int(input("Nota Generales: "))
+    proPruebas = (notaProyecto * 0.3) + (notaExamen * 0.6)
+    promedio = proPruebas + (notaGenerales * 0.1)
+    return promedio
 
 def menu():
     bandera = True
@@ -67,8 +82,9 @@ def menu():
     -----------------------------------------
     -             MENU NOTAS                -
     -----------------------------------------
-    -   Sistema de almacenamiento de datos  -
     -     1. Ingresar Notas                 -
+    -     2. Asignar Prueba Seleccion       -
+    -     3. Nota Modulo                    -
     -     4. Eliminar Notas                 -
     -     0. Salir                          -
     -----------------------------------------
@@ -85,6 +101,9 @@ def menu():
             case 2:
                 system("clear")
                 asignarPrueba()
+            case 3:
+                system("clear")
+                notaModulo()
             case 0:
                 system("clear")
                 bandera = False

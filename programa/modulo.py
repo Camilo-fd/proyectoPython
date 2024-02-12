@@ -107,7 +107,6 @@ def menu():
     -----------------------------------------
     -            MENU MODULOS               -
     -----------------------------------------
-    -   Sistema de almacenamiento de datos  -
     -     1. Crear Modulo                   -
     -     2. Editar Modulo                  -
     -     3. Buscar Modulo                  -

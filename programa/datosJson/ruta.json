@@ -1,22 +1,48 @@
 [
     {
-        "Codigo": "001",
-        "Nombre Ruta": "QQ",
+        "Codigo": "F01",
+        "Nombre Ruta": "FUNDAMENTO",
         "Modulo": [
             {
-                "Codigo": "XXX",
-                "Nombre Modulo": "Sapa",
-                "Prioridad": "Ex",
+                "Codigo": "99",
+                "Nombre Modulo": "APRENDIENDO",
+                "Prioridad": "ALTA",
                 "Temarios": [
                     {
-                        "Temario": "Manu"
-                    },
-                    {
-                        "Temario": "Ela"
+                        "Temario": "PAYYY"
                     }
                 ]
             }
         ],
-        "Camper": []
+        "Camper": [
+            {
+                "Nro Identificacion": "1095791057",
+                "Nombre": "Camilo",
+                "Apellido": "Franco",
+                "Direccion": "cra 7 # 15-n33",
+                "Telefonos": [
+                    {
+                        "Celular": 3005452669
+                    }
+                ],
+                "Acudiente": [],
+                "Estado": "Aprovado",
+                "Nota": []
+            }
+        ],
+        "Trainer": [
+            {
+                "Nro Identificacion": "321",
+                "Nombre completo": "sONIA",
+                "Camper": []
+            }
+        ]
+    },
+    {
+        "Codigo": "F02",
+        "Nombre Ruta": "PYTHON",
+        "Modulo": [],
+        "Camper": [],
+        "Trainer": []
     }
 ]

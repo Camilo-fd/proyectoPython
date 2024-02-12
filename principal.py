@@ -8,6 +8,7 @@ import programa.ruta as ruta
 import programa.modulo as modulo
 import programa.horario as horario
 import programa.salasEntrenamiento as salasEntrenamiento
+import programa.reportes as reportes
 
 def menu():
     print("""
@@ -83,6 +84,10 @@ while (bandera):
                 system("clear")
                 salasEntrenamiento.menu()
             system("clear")
+        case 8:
+                system("clear")
+                reportes.menu()
+                system("clear")
         case 0:
             bandera = False
         case _:

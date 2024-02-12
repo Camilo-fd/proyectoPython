@@ -62,12 +62,10 @@ def printTrainer(trainer):
 def asignarCamper():
     with open("programa/datosJson/trainer.json", "r") as f:
         trainer = json.loads(f.read())
-        f.close()
         listarTrainer()
     codtra = input("Nro Identificacion de trainer: ")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
-        f.close()
         listarCamper()
     while True:
         codcamp = input("Nro Identificacion de camper: ")
@@ -75,7 +73,7 @@ def asignarCamper():
             if trainers.get("Nro Identificacion") == codtra:
                 for campers in camper:
                     if campers.get("Nro Identificacion") == codcamp:
-                        trainer["Camper"].append(campers)
+                        trainers["Camper"].append(campers)
         with open("programa/datosJson/trainer.json", "w") as f:
             trainer = json.dumps(trainer, indent=4)
             f.write(trainer)
@@ -87,10 +85,8 @@ def asignarCamper():
             system("clear")
             print("Camper asignado correctamente")
             break
-        
 
-def asignarRuta():
-    print()
+
 
 def menu():
     bandera = True

@@ -23,7 +23,7 @@ def guardar():
         "Direccion": input("Ingrese la direccion del camper: "),
         "Telefonos": [
             {
-            f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
+            f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))==1) else 'Celular'}":
             int(input(f'Numero de contactto {x+1}: '))
         }
 
@@ -204,7 +204,7 @@ def borrar():
         ********************
         """)
         listarCamper()
-        codigo = input("Ingrese el codigo del camper que deseas actualizar \n")
+        codigo = input("Ingrese el codigo del camper que deseas eliminar \n")
         try:
             codCamper = next(index for index, camp in enumerate(camper) if camp.get("Nro Identificacion") == codigo)
             print(f"""
@@ -260,7 +260,6 @@ def menu():
     -----------------------------------------
     -             MENU CAMPER               -
     -----------------------------------------
-    -   Sistema de almacenamiento de datos  -
     -     1. Ingresar Camper                -
     -     2. Editar Camper                  -
     -     3. Buscar Camper                  -
