@@ -21,16 +21,9 @@ def guardar():
         "Nombre": input("Ingrese el nombre del camper: "),
         "Apellido": input("Ingrese el apellido del camper: "),
         "Direccion": input("Ingrese la direccion del camper: "),
-        "Telefonos": [
-            {
-            f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))==1) else 'Celular'}":
-            int(input(f'Numero de contactto {x+1}: '))
-        }
-
-        for x in range(int(input("Ingrese la cantidad de telefonos que tiene: ")))
-
-        ],
-        "Acudiente": [],
+        "Celular": input("Celular: "),
+        "Fijo": input("Fijo: "),
+        "Acudiente": "",
         "Estado": "Pre inscrito",
         "Nota": [],
         "Nota Modulo": []
@@ -51,7 +44,7 @@ def guardar():
         elif edad >=18:
             bandera  = False
         elif 16 <= edad < 18:
-            info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})
+            info["Acudiente"] = input("Ingrese el nombre del acudiente: ")
         camper.append(info)
         with open("programa/datosJson/camper.json", "w") as f:
             data = json.dumps(camper, indent=4)
@@ -82,7 +75,8 @@ def editar():
     Nombre: {camper[codCamper].get('Nombre')}
     Apellido: {camper[codCamper].get('Apellido')}
     Direccion: {camper[codCamper].get('Direccion')}
-    Telefonos: {camper[codCamper].get('Telefonos')}
+    Celular: {camper[codCamper].get('Celular')}
+    Fijo: {camper[codCamper].get('Fijo')}
     Acudiente: {camper[codCamper].get('Acudiente')}
     Estado: {camper[codCamper].get('Estado')}
     ________________________
@@ -98,15 +92,9 @@ def editar():
             "Nombre": input("Ingrese el nombre del camper: "),
             "Apellido": input("Ingrese el apellido del camper: "),
             "Direccion": input("Ingrese la direccion del camper: "),
-            "Telefonos": [
-                {
-                    f"{'Fijo' if(int(input('1. Fijo 2. Celular: '))) else 'Celular'}":
-                    int(input(f'Numero de contacto {x+1}: '))
-                }
-
-                for x in range(int(input("Ingrese la cantidad de telefonos: ")))
-            ],
-            # "Acudiente": [info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})],
+            "Celular": input("Ingrese Celular: "),
+            "Fijo": input("Ingrese Fijo: "),
+            "Acudiente": [info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})],
             "Estado": "Pre Inscrito"
         }
                 # info["Acudiente"].append({"Responsable": input("Ingrese el nombre del acudiente: ")})
@@ -141,11 +129,11 @@ def buscar():
         camper = json.loads(f.read())
         f.close()
 
-    for i, val in enumerate(camper):
-        telefonos = ""
-        for valor in val.get('Telefonos'):
-            for key, value in valor.items():
-                telefonos += f" {key} = {value} "
+    # for i, val in enumerate(camper):
+    #     telefonos = ""
+    #     for valor in val.get('Telefonos'):
+    #         for key, value in valor.items():
+    #             telefonos += f" {key} = {value} "
 
     for i,val in enumerate(camper):
         if (val.get('Nro Identificacion') == numr):
@@ -155,7 +143,8 @@ def buscar():
     Nombre: {val.get('Nombre')}
     Apellido: {val.get('Apellido')}
     Direccion: {val.get('Direccion')}
-    Telefonos: {telefonos}
+    Celular: {val.get('Celular')}
+    Fijo: {val.get('Fijo')}
     Verificacion: {val.get('Verificacion')}
     Estado: {val.get('Estado')}
     ____________________________
@@ -168,20 +157,29 @@ def listarCamper():
         campers = json.loads(f.read())
         f.close()
     for camper in campers:
-         printCamper(camper)
+        printCamper(camper)
 
 def printCamper(camper):
+    try:
+        nota = camper["Nota"][0]["Nota"]
+    except IndexError:
+        nota = ""
+    try:
+        notaModulo = camper["Nota Modulo"][0]["Total"]
+    except IndexError:
+        notaModulo = ""
     print(f"""\033[92m
             ----------------CAMPER-------------
             Nro Identificacion: {camper["Nro Identificacion"]}
             Nombre: {camper["Nombre"]}
             Apellido: {camper["Apellido"]}
             Direccion: {camper["Direccion"]}
-            Telefonos: {camper["Telefonos"]}
+            Celular: {camper["Celular"]}
+            Fijo: {camper["Fijo"]}
             Acudiente: {camper["Acudiente"]}
             Estado: {camper["Estado"]}
-            Nota: {camper["Nota"]}
-            Nota Modulo: {camper["Nota Modulo"]}
+            Nota: {nota}
+            Nota Modulo: {notaModulo}
             -----------------------------------
               \033[92m""")
     
@@ -204,7 +202,8 @@ def borrar():
     Nombre: {camper[codCamper].get('Nombre')}
     Apellido: {camper[codCamper].get('Apellido')}
     Direccion: {camper[codCamper].get('Direccion')}
-    Telefonos: {camper[codCamper].get('Telefonos')}
+    Celular: {camper[codCamper].get('Celular')}
+    Fijo: {camper[codCamper].get('Fijo')}
     Acudiente: {camper[codCamper].get('Acudiente')}
     Estado: {camper[codCamper].get('Estado')}
     ________________________

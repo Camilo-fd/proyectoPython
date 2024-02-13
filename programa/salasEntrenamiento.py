@@ -2,8 +2,8 @@ import json
 from os import system
 from programa.camper import listarCamper
 from programa.trainer import listarTrainer
-from programa.ruta import listarRuta, listadoCamper
-from programa.reportes import camperAprovado
+from programa.ruta import listarRuta
+from programa.reportes import camperAprobado
 from .datos import salasEntrenamiento
 
 def ingresarSalas():
@@ -46,7 +46,7 @@ def asigarRuta():
 def asignarCamper(): 
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
-        camperAprovado()
+        listarCamper()
     codCamper = input("Nro Identificacion del camper: ")
     with open("programa/datosJson/salasEntrenamiento.json", "r") as f:
         salasEntrenamiento = json.loads(f.read())
@@ -107,9 +107,10 @@ def printsalasEntrenamiento(salasEntrenamiento):
         Codigo: {salasEntrenamiento["Codigo"]}
         Capacidad Maxima: {salasEntrenamiento["Capacidad Maxima"]}
         Ruta: {salasEntrenamiento["Ruta"]}
-        Camper: {listadoCamper(salasEntrenamiento)}
+        Camper: {salasEntrenamiento["Camper"][0]["Nro Identificacion"]}-{salasEntrenamiento["Camper"][0]["Nombre"]} {salasEntrenamiento["Camper"][0]["Apellido"]}
         ---------------------------------------------
             """)
+
 
 def menu():
     bandera = True

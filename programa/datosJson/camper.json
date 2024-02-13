@@ -3,100 +3,63 @@
         "Nro Identificacion": "101",
         "Nombre": "Camilo",
         "Apellido": "Franco",
-        "Direccion": "cra 7 # 15-n33",
-        "Telefonos": [
-            {
-                "Celular": 3005452669
-            }
-        ],
-        "Acudiente": [],
-        "Estado": "Aprovado",
+        "Direccion": "Cra 7",
+        "Celular": "3005452669",
+        "Fijo": "",
+        "Acudiente": "",
+        "Estado": "Inscrito",
         "Nota": [
             {
                 "Nro Identificacion": "101",
-                "Fecha": "12/12/2024",
-                "Nota": 71
+                "Fecha": "12/02",
+                "Nota": 81
             }
         ],
         "Nota Modulo": [
-            [
-                {
-                    "Nro Identificacion": "101",
-                    "Codigo": "01",
-                    "Total": 2387,
-                    "Fecha": "12/12/2024",
-                    "Nro Identificaion Trainer": "999"
-                }
-            ]
+            {
+                "Nro Identificacion": "101",
+                "modul": null,
+                "Codigo": "01",
+                "Total": 87,
+                "Fecha": "12/2024",
+                "Nro Identificaion Trainer": "0000"
+            }
         ]
     },
     {
         "Nro Identificacion": "102",
-        "Nombre": "Andres",
-        "Apellido": "Duran",
-        "Direccion": "mm",
-        "Telefonos": [
-            {
-                "Celular": 300656
-            }
-        ],
-        "Acudiente": [],
-        "Estado": "Aprovado",
+        "Nombre": "Henry",
+        "Apellido": "Pollo",
+        "Direccion": "Calle 7",
+        "Celular": "3214562345",
+        "Fijo": "64521385",
+        "Acudiente": "",
+        "Estado": "Inscrito",
         "Nota": [
             {
                 "Nro Identificacion": "102",
-                "Fecha": "12/12/2024",
-                "Nota": 73
+                "Fecha": "23/04",
+                "Nota": 71
             }
         ],
-        "Nota Modulo": [
-            [
-                {
-                    "Nro Identificacion": "102",
-                    "pi": null,
-                    "Codigo": "02",
-                    "Total": 64,
-                    "Fecha": "12/12/2024",
-                    "Nro Identificaion Trainer": "999"
-                }
-            ]
-        ]
+        "Nota Modulo": []
     },
     {
         "Nro Identificacion": "103",
-        "Nombre": "Juan",
-        "Apellido": "Maldonado",
-        "Direccion": "cra 7",
-        "Telefonos": [
-            {
-                "Fijo": 3232236565
-            }
-        ],
-        "Acudiente": [
-            {
-                "Responsable": "Martin"
-            }
-        ],
-        "Estado": "En Riesgo",
+        "Nombre": "JHONATAN",
+        "Apellido": "GUTIZ",
+        "Direccion": "CRA9",
+        "Celular": "",
+        "Fijo": "64542112",
+        "Acudiente": "MANUELA",
+        "Estado": "Inscrito",
         "Nota": [
             {
                 "Nro Identificacion": "103",
-                "Fecha": "12/12/2024",
-                "Nota": 86
+                "Fecha": "31/12",
+                "Nota": 92
             }
         ],
-        "Nota Modulo": [
-            [
-                {
-                    "Nro Identificacion": "103",
-                    "modul": null,
-                    "Codigo": "03",
-                    "Total": 10,
-                    "Fecha": "12/12/2024",
-                    "trai": null,
-                    "Nro Identificaion Trainer": "999"
-                }
-            ]
-        ]
+        "Nota Modulo": []
     }
 ]

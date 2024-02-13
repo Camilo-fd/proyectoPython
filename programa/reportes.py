@@ -19,38 +19,40 @@ def camperInscrito():
                 print(f"\t\tNombre: {campers['Nombre']}")
                 print(f"\t\tApellido: {campers['Apellido']}")
                 print(f"\t\tDireccion: {campers['Direccion']}")
-                print(f"\t\tTelefonos: {campers['Telefonos']}")
+                print(f"\t\tCelular: {campers['Celular']}")
+                print(f"\t\tFijo: {campers['Fijo']}")
                 print(f"\t\tAcudiente: {campers['Acudiente']}")
                 print(f"\t\tEstado: {campers['Estado']}")
-                print(f"\t\tNota: {campers['Nota']}")
-                print(f"\t\tNota Modulo: {campers['Nota Modulo']}")
                 print("\t\t--------------------------------------")
                 print("                                      ")
-                # print(json.dumps(campers, indent=4))
 
-def camperAprovado():
+def recorrerNota():
+    with open("programa/datosJson/camper.json", "r") as f:
+        camper = json.loads(f.read())
+        for campers in camper["Nota"]:
+            print(campers.get("Nro Identificacion"))
+
+def camperAprobado():
     print("""\033[92m\t\t
         *******************
-        * Campers Aprovado *
+        * Campers Aprobado *
         *******************
         \033[92m""")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
         for i,campers in enumerate(camper):
-            if camper[i]["Estado"] == "Aprovado":
+            if camper[i]["Estado"] == "Aprobado":
                 print("\033[92m\t\t--------------------------------------\033[92m")
                 print(f"\t\tNro Identificacion: {campers['Nro Identificacion']}")
                 print(f"\t\tNombre: {campers['Nombre']}")
                 print(f"\t\tApellido: {campers['Apellido']}")
+                print(f"\t\tCelular: {campers['Celular']}")
+                print(f"\t\Fijo: {campers['Fijo']}")
                 print(f"\t\tDireccion: {campers['Direccion']}")
-                print(f"\t\tTelefonos: {campers['Telefonos']}")
                 print(f"\t\tAcudiente: {campers['Acudiente']}")
                 print(f"\t\tEstado: {campers['Estado']}")
-                print(f"\t\tNota: {campers['Nota']}")
-                print(f"\t\tNota Modulo: {campers['Nota Modulo']}")
                 print("\t\t--------------------------------------")
                 print("                                      ")
-                # print(json.dumps(campers, indent=4))
 
 def camperBajoriesgo():
     print("""\033[92m\t\t
@@ -67,11 +69,10 @@ def camperBajoriesgo():
                 print(f"\t\tNombre: {campers['Nombre']}")
                 print(f"\t\tApellido: {campers['Apellido']}")
                 print(f"\t\tDireccion: {campers['Direccion']}")
-                print(f"\t\tTelefonos: {campers['Telefonos']}")
+                print(f"\t\tCelular: {campers['Celular']}")
+                print(f"\t\Fijo: {campers['Fijo']}")
                 print(f"\t\tAcudiente: {campers['Acudiente']}")
                 print(f"\t\tEstado: {campers['Estado']}")
-                print(f"\t\tNota: {campers['Nota']}")
-                print(f"\t\tNota Modulo: {campers['Nota Modulo']}")
                 print("\t\t--------------------------------------")
                 print("                                   ")
                 # print(json.dumps(campers, indent=4))
@@ -89,33 +90,31 @@ def listarCamperTrainerRuta():
         ruta = json.loads(f.read())
     listarRuta()
     codRuta = input("Codigo Ruta: ")
+    system("clear")
     for rutas in ruta:
         if rutas.get("Codigo") == codRuta:
                 for campers in rutas["Camper"]:
-                    print("\t\t--------------------------------------")
+                    print("\t\t-----------------CAMPER----------------------")
                     print(f"\t\tNro Identificacion: {campers['Nro Identificacion']}")
                     print(f"\t\tNombre: {campers['Nombre']}")
                     print(f"\t\tApellido: {campers['Apellido']}")
                     print(f"\t\tDireccion: {campers['Direccion']}")
-                    print(f"\t\tTelefonos: {campers['Telefonos']}")
+                    print(f"\t\tCelular: {campers['Celular']}")
+                    print(f"\t\Fijo: {campers['Fijo']}")
                     print(f"\t\tAcudiente: {campers['Acudiente']}")
                     print(f"\t\tEstado: {campers['Estado']}")
-                    print(f"\t\tNota: {campers['Nota']}")
-                    print(f"\t\tNota Modulo: {campers['Nota Modulo']}")
                     print("\t\t--------------------------------------")
                     print("                                      ")
-                    # print(json.dumps(campers, indent=4))
                 for trainers in rutas["Trainer"]:
-                    print("\t\t--------------------------------------")
-                    print(f"\t\tNro Identificacion: {trainers['Nro Identificacion']}")
-                    print(f"\t\tNombre Completo: {trainers['Nombre Completo']}")
-                    print("\t\t--------------------------------------")
-                    print("                                      ")
-                    # print(json.dumps(trainers, indent=4))
-        # elif rutas.get("Codigo") != codRuta:
-        #     system("clear")
-        #     print("No hay Camper y Trainer en una ruta")
-        #     exit
+                        try:
+                            trai = trainers['Nombre Completo']
+                        except KeyError:
+                            trai = ""
+                        print("\t\t-----------------TRAINER---------------------")
+                        print(f"\t\tNro Identificacion: {trainers['Nro Identificacion']}")
+                        print(f"\t\tNombre Completo: {trai}")
+                        print("\t\t--------------------------------------")
+                        print("                                      ")
 
 def CamperTrainerRuta():
     with open("programa/datosJson/ruta.json","r") as f:
@@ -124,21 +123,25 @@ def CamperTrainerRuta():
     for rutas in ruta:
         print("                            ")
         print("\t----Ruta----")
-        for key, value in rutas.items():
-            print(f"{key}  :  {str(value)}")
+        print(f"\t Codigo: {rutas.get('Codigo')}")
+        print(f"\t Nombre Ruta: {rutas.get('Nombre Ruta')}")
+        # print(f"\t Camper: {rutas.get('Camper')}")
+        # print(f"\t Trainer: {rutas.get('Trainer')}")
         for trainers in rutas["Trainer"]:
             print("                            ")
             print("\t----Trainer----")
             for key, value in trainers.items():
-                print(f"{str(key)}  :  {str(value)}")
+                if key != "Camper":
+                    print(f"\t{str(key)}  :  {str(value)}")
         for campers in rutas["Camper"]:
             for i in campers["Nota Modulo"][0]:
                 if float(i ["Total"]) > 60:
                     print("                            ")
-                    print(f"\t----Camper Paso-----\n{campers}")
-                elif float(i ["Total"]) < 60:
-                    print("                            ")
-                    print(f"\t----Camper no paso:----- \n{campers}")
+                    print(f"\t----Camper Paso-----\n\tNro Identificacion: {campers['Nro Identificacion']}\n\tNombre: {campers['Nombre']}\n\tApellido: {campers['Apellido']}")
+                else:
+                        print("                            ")
+                        print(f"\t----Camper no paso:----- \n\tNro Identificacion: {campers['Nro Identificacion']}\n\tNombre: {campers['Nombre']}\n\tApellido: {campers['Apellido']}")
+
 
 def menu():
     bandera = True
@@ -170,7 +173,7 @@ def menu():
                 camperInscrito()
             case 2:
                 system("clear")
-                camperAprovado()
+                camperAprobado()
             case 3:
                 system("clear")
                 mostraTrainer()

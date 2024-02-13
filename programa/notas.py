@@ -77,12 +77,6 @@ def notaModulo():
         "Fecha": input("Fecha: "),
         "Nro Identificaion Trainer": input("Nro Identificacion Trainer: ")
     }
-    # notasModulo.append(info)
-    # with open("programa/datosJson/notasModulo.json", "w") as f:
-    #     data = json.dumps(notasModulo, indent=4)
-    #     f.write(data)
-    #     f.close()
-    #     system("clear")
     return info
 
 def calculosnotaModulo():
@@ -110,7 +104,6 @@ def asignarNotamodulo():
     print("                                   ")
     print("-----------------------------------")
     info = notaModulo()
-    notasModulo.append(info)
     for item in notasModulo:
         print("\t    ----------NOTA MODULO----------")
         for key, value in item.items():
@@ -118,6 +111,7 @@ def asignarNotamodulo():
         print("\t    -------------------------------")
     for campers in camper:
             if campers.get("Nro Identificacion") == codigoCamper:
+                campers["Nota Modulo"].append(info)
                 for notas in notasModulo:
                     if notas.get("Nro Identificacion") == codigoCamper:
                         campers["Nota Modulo"].append(notasModulo)
@@ -128,6 +122,10 @@ def asignarNotamodulo():
     with open("programa/datosJson/camper.json", "w") as f:
         campers = json.dumps(camper, indent=4)
         f.write(campers)
+        f.close()
+    with open("programa/datosJson/notasModulo.json", "w") as f:
+        nota = json.dumps(notasModulo, indent=4)
+        f.write(nota)
         f.close()
 
 def menu():
