@@ -87,6 +87,7 @@ def listarCamperTrainerRuta():
         \033[92m""")
     with open("programa/datosJson/ruta.json", "r") as f:
         ruta = json.loads(f.read())
+    listarRuta()
     codRuta = input("Codigo Ruta: ")
     for rutas in ruta:
         if rutas.get("Codigo") == codRuta:
@@ -135,7 +136,7 @@ def CamperTrainerRuta():
                 if float(i ["Total"]) > 60:
                     print("                            ")
                     print(f"\t----Camper Paso-----\n{campers}")
-                else:
+                elif float(i ["Total"]) < 60:
                     print("                            ")
                     print(f"\t----Camper no paso:----- \n{campers}")
 

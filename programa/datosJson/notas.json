@@ -1,7 +1,17 @@
 [
     {
-        "Nro Identificacion": "1095791057",
-        "Fecha": "12/12/2023",
+        "Nro Identificacion": "101",
+        "Fecha": "12/12/2024",
         "Nota": 71
+    },
+    {
+        "Nro Identificacion": "102",
+        "Fecha": "12/12/2024",
+        "Nota": 73
+    },
+    {
+        "Nro Identificacion": "103",
+        "Fecha": "12/12/2024",
+        "Nota": 86
     }
 ]

@@ -109,8 +109,6 @@ def printRuta(ruta): # IMPRIMO LA RUTA LINDO
             Codigo: {ruta['Codigo']}
             Nombre Ruta: {ruta['Nombre Ruta']}
             Modulos:{listadoModulo(ruta)}
-            Camper: {listadoCamper(ruta)}
-            Trainer:{ruta['Trainer']}
             --------------------------------------------------
             \033[92m""")
 
@@ -128,9 +126,9 @@ def listadoModulo(ruta): # LISTO EL MODULO
     tabulado = ""     
     for i in ruta['Modulo']:
         tabulado += (f"""
-            Codigo: {i["Codigo"]}
-            Nombre Modulo: {i["Nombre Modulo"]}
-            Prioridad: {i["Prioridad"]}
+            \t     Codigo: {i["Codigo"]}
+            \t     Nombre Modulo: {i["Nombre Modulo"]}
+            \t     Prioridad: {i["Prioridad"]}
             Temarios: {listadoTemarios(i)}
                 """)
     return tabulado
@@ -230,7 +228,7 @@ def asignarTrainer():
         \033[92m""")
     with open("programa/datosJson/trainer.json", "r") as f:
         trainer = json.loads(f.read())
-        listarTrainer()
+    listarTrainer()
     codTrainer = input("Nro Identificacion del trainer: ")
     with open("programa/datosJson/ruta.json", "r") as f:
         ruta = json.loads(f.read())

@@ -20,8 +20,78 @@
                 ]
             }
         ],
-        "Camper": [],
-        "Trainer": []
+        "Camper": [
+            {
+                "Nro Identificacion": "101",
+                "Nombre": "Camilo",
+                "Apellido": "Franco",
+                "Direccion": "cra 7 # 15-n33",
+                "Telefonos": [
+                    {
+                        "Celular": 3005452669
+                    }
+                ],
+                "Acudiente": [],
+                "Estado": "Aprovado",
+                "Nota": [
+                    {
+                        "Nro Identificacion": "101",
+                        "Fecha": "12/12/2024",
+                        "Nota": 71
+                    }
+                ],
+                "Nota Modulo": [
+                    [
+                        {
+                            "Nro Identificacion": "101",
+                            "Codigo": "01",
+                            "Total": 2387,
+                            "Fecha": "12/12/2024",
+                            "Nro Identificaion Trainer": "999"
+                        }
+                    ]
+                ]
+            },
+            {
+                "Nro Identificacion": "102",
+                "Nombre": "Andres",
+                "Apellido": "Duran",
+                "Direccion": "mm",
+                "Telefonos": [
+                    {
+                        "Celular": 300656
+                    }
+                ],
+                "Acudiente": [],
+                "Estado": "Aprovado",
+                "Nota": [
+                    {
+                        "Nro Identificacion": "102",
+                        "Fecha": "12/12/2024",
+                        "Nota": 73
+                    }
+                ],
+                "Nota Modulo": [
+                    [
+                        {
+                            "Nro Identificacion": "102",
+                            "pi": null,
+                            "Codigo": "02",
+                            "Total": 64,
+                            "Fecha": "12/12/2024",
+                            "Nro Identificaion Trainer": "999"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "Trainer": [
+            {
+                "Nro Identificacion": "0000",
+                "Nombre completo": "Miguel Castro",
+                "Camper": []
+            }
+        ]
     },
     {
         "Codigo": "F02",

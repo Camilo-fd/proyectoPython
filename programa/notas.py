@@ -3,6 +3,8 @@ from os import system
 from .valido import menuNoValid
 from .datos import notas,camper,notasModulo
 from programa.camper import listarCamper
+from programa.modulo import listar
+from programa.trainer import listarTrainer
 import json
 
 def pruebaSeleccion(): 
@@ -69,6 +71,7 @@ def notaModulo():
     
     info = {
         "Nro Identificacion": input("Nro Identificacion Camper: "),
+        "modul": listar(),
         "Codigo": input("Codigo Modulo: "),
         "Total": calculosnotaModulo(),
         "Fecha": input("Fecha: "),

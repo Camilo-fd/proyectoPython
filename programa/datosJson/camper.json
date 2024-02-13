@@ -10,27 +10,93 @@
             }
         ],
         "Acudiente": [],
-        "Estado": "Pre Inscrito",
-        "Nota": [],
-        "Nota Modulo": []
+        "Estado": "Aprovado",
+        "Nota": [
+            {
+                "Nro Identificacion": "101",
+                "Fecha": "12/12/2024",
+                "Nota": 71
+            }
+        ],
+        "Nota Modulo": [
+            [
+                {
+                    "Nro Identificacion": "101",
+                    "Codigo": "01",
+                    "Total": 2387,
+                    "Fecha": "12/12/2024",
+                    "Nro Identificaion Trainer": "999"
+                }
+            ]
+        ]
     },
     {
         "Nro Identificacion": "102",
         "Nombre": "Andres",
         "Apellido": "Duran",
-        "Direccion": "Campus",
+        "Direccion": "mm",
         "Telefonos": [
             {
-                "Fijo": 6359654
+                "Celular": 300656
+            }
+        ],
+        "Acudiente": [],
+        "Estado": "Aprovado",
+        "Nota": [
+            {
+                "Nro Identificacion": "102",
+                "Fecha": "12/12/2024",
+                "Nota": 73
+            }
+        ],
+        "Nota Modulo": [
+            [
+                {
+                    "Nro Identificacion": "102",
+                    "pi": null,
+                    "Codigo": "02",
+                    "Total": 64,
+                    "Fecha": "12/12/2024",
+                    "Nro Identificaion Trainer": "999"
+                }
+            ]
+        ]
+    },
+    {
+        "Nro Identificacion": "103",
+        "Nombre": "Juan",
+        "Apellido": "Maldonado",
+        "Direccion": "cra 7",
+        "Telefonos": [
+            {
+                "Fijo": 3232236565
             }
         ],
         "Acudiente": [
             {
-                "Responsable": "Sonia"
+                "Responsable": "Martin"
             }
         ],
-        "Estado": "Inscrito",
-        "Nota": [],
-        "Nota Modulo": []
+        "Estado": "En Riesgo",
+        "Nota": [
+            {
+                "Nro Identificacion": "103",
+                "Fecha": "12/12/2024",
+                "Nota": 86
+            }
+        ],
+        "Nota Modulo": [
+            [
+                {
+                    "Nro Identificacion": "103",
+                    "modul": null,
+                    "Codigo": "03",
+                    "Total": 10,
+                    "Fecha": "12/12/2024",
+                    "trai": null,
+                    "Nro Identificaion Trainer": "999"
+                }
+            ]
+        ]
     }
 ]
