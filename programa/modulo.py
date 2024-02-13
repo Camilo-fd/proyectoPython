@@ -3,6 +3,11 @@ from .datos import modulo
 from os import system
 
 def crear():
+    print(f"""\033[92m
+    *********************
+    *    Crear Modulo   *
+    *********************
+    \033[92m""")
     while True:
         codigo = input("Codigo Modulo: ")
         for modulos in modulo:
@@ -31,6 +36,11 @@ def crear():
         print("Modulo registrado correctamente")
 
 def editar():
+    print(f"""\033[92m
+    *********************
+    *   Editar Modulo   *
+    *********************
+    \033[92m""")
     bandera = True
     while (bandera):
         codigo = input("Ingrese el codigo del modulo: ")
@@ -73,11 +83,11 @@ def editar():
 
 def listar():
     system("clear")
-    print("""
-        *************************
-        *     Listar Modulo     *
-        *************************
-          """)
+    print(f"""\033[92m
+    **********************
+    *    Listar Modulo   *
+    **********************
+    \033[92m""")
     with open("programa/datosJson/modulo.json") as f:
         modulos = json.loads(f.read())
         f.close()
@@ -85,14 +95,14 @@ def listar():
          printModulo(modulo)
 
 def printModulo(modulo): # IMPRIMO EL MODULO LINDO
-    print(f"""
+    print(f"""\033[92m
             ----------------MODULO-------------
             Codigo: {modulo["Codigo"]}
             Nombre Modulo: {modulo["Nombre Modulo"]}
             Prioridad: {modulo["Prioridad"]}
             Temarios: {listadomodulo(modulo)}
             -----------------------------------
-              """)
+              \033[92m""")
     
 def listadomodulo(modulo): # LISTO LOS TEMARIOS DEL MODULO
     texto=""
@@ -103,7 +113,7 @@ def listadomodulo(modulo): # LISTO LOS TEMARIOS DEL MODULO
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -            MENU MODULOS               -
     -----------------------------------------
@@ -112,7 +122,7 @@ def menu():
     -     3. Buscar Modulo                  -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

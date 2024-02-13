@@ -1,37 +1,21 @@
 [
     {
-        "Nro Identificacion": "1095791057",
+        "Nro Identificacion": "101",
         "Nombre": "Camilo",
         "Apellido": "Franco",
         "Direccion": "cra 7 # 15-n33",
         "Telefonos": [
             {
-                "Celular": 3005452669 
+                "Celular": 3005452669
             }
         ],
         "Acudiente": [],
-        "Estado": "Aprovado",
-        "Nota": [
-            {
-                "Nro Identificacion": "1095791057",
-                "Fecha": "12/12/2023",
-                "Nota": 71
-            }
-        ],
-        "Nota Modulo": [
-            [
-                {
-                    "Nro Identificacion": "1095791057",
-                    "Codigo": "01",
-                    "Total": 65,
-                    "Fecha": "12/12/2023",
-                    "Nro Identificaion Trainer": "999"
-                }
-            ]
-        ]
+        "Estado": "Pre Inscrito",
+        "Nota": [],
+        "Nota Modulo": []
     },
     {
-        "Nro Identificacion": "1901162005",
+        "Nro Identificacion": "102",
         "Nombre": "Andres",
         "Apellido": "Duran",
         "Direccion": "Campus",

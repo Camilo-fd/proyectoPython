@@ -3,47 +3,7 @@
         "Nombre Sala": "APOLO",
         "Codigo": "33",
         "Capacidad Maxima": "33",
-        "Ruta": [
-            {
-                "Codigo": "F01",
-                "Nombre Ruta": "FUNDAMENTO",
-                "Modulo": [
-                    {
-                        "Codigo": "99",
-                        "Nombre Modulo": "APRENDIENDO",
-                        "Prioridad": "ALTA",
-                        "Temarios": [
-                            {
-                                "Temario": "PAYYY"
-                            }
-                        ]
-                    }
-                ],
-                "Camper": [
-                    {
-                        "Nro Identificacion": "1095791057",
-                        "Nombre": "Camilo",
-                        "Apellido": "Franco",
-                        "Direccion": "cra 7 # 15-n33",
-                        "Telefonos": [
-                            {
-                                "Celular": 3005452669
-                            }
-                        ],
-                        "Acudiente": [],
-                        "Estado": "Aprovado",
-                        "Nota": []
-                    }
-                ],
-                "Trainer": [
-                    {
-                        "Nro Identificacion": "321",
-                        "Nombre completo": "sONIA",
-                        "Camper": []
-                    }
-                ]
-            }
-        ],
+        "Ruta": [],
         "Camper": [],
         "Trainer": []
     }

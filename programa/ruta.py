@@ -8,11 +8,11 @@ from programa.camper import camper
 
 def ingresar():
     while True:
-        print("""
+        print("""\033[92m\t\t
         ******************
         * Registrar Ruta *
-        *******************
-        """)
+        ******************
+        \033[92m""")
         codigo = input("Codigo Ruta: ")
         for rutas in ruta:
                 if rutas["Codigo"] == codigo:
@@ -43,11 +43,11 @@ def editar():
     bandera = True
     while(bandera):
         system("clear")
-        print("""
+        print("""\033[92m\t\t
         ***************
         * Editar Ruta *
         ***************
-        """)
+        \033[92m""")
         codigo = input("Ingrese el Codigo de la ruta que deseas actualizar: ")
         try:
             codRuta = next(index for index, camp in enumerate(ruta) if camp.get("Codigo") == codigo)
@@ -91,11 +91,11 @@ def editar():
 
 def listarRuta():
     system("clear")
-    print(f"""
-    ******************
-    *  Listar Rutas  *
-    ******************
-    """)
+    print("""\033[92m\t\t
+        ***************
+        * Listar Ruta *
+        ***************
+        \033[92m""")
 
     with open("programa/datosJson/ruta.json", "r") as f:
         rutas = json.loads(f.read())
@@ -104,7 +104,7 @@ def listarRuta():
         printRuta(ruta)
             
 def printRuta(ruta): # IMPRIMO LA RUTA LINDO
-    print(f"""
+    print(f"""\033[92m
             -----------------------RUTA-----------------------
             Codigo: {ruta['Codigo']}
             Nombre Ruta: {ruta['Nombre Ruta']}
@@ -112,19 +112,38 @@ def printRuta(ruta): # IMPRIMO LA RUTA LINDO
             Camper: {listadoCamper(ruta)}
             Trainer:{ruta['Trainer']}
             --------------------------------------------------
-            """)
-    
+            \033[92m""")
+
+def printModulo(modulo): # IMPRIMO EL MODULO LINDO
+    print(f"""\033[92m
+            ----------------MODULO-------------
+            Codigo: {modulo["Codigo"]}
+            Nombre Modulo: {modulo["Nombre Modulo"]}
+            Prioridad: {modulo["Prioridad"]}
+            Temarios: {listadoTemarios(modulo)}
+            -----------------------------------
+              \033[92m""")
+
 def listadoModulo(ruta): # LISTO EL MODULO
-            for i in ruta['Modulo']:
-                return(f"""
-                    Codigo: {i["Codigo"]}
-                    Nombre Modulo: {i["Nombre Modulo"]}
-                    Prioridad: {i["Prioridad"]}
-                      """)
+    tabulado = ""     
+    for i in ruta['Modulo']:
+        tabulado += (f"""
+            Codigo: {i["Codigo"]}
+            Nombre Modulo: {i["Nombre Modulo"]}
+            Prioridad: {i["Prioridad"]}
+            Temarios: {listadoTemarios(i)}
+                """)
+    return tabulado
+
+def listadoTemarios(modulo): # LISTO LOS TEMARIOS
+    texto=""
+    for i in modulo["Temarios"]:
+        texto+=f'\n\t\t     {i["Temario"]} '
+    return (texto)
 
 def listadoCamper(ruta):
     for i in ruta["Camper"]:
-        return(f"""
+        return(f"""\033[92m
                     Nro Identificacion: {i["Nro Identificacion"]}
                     Nombre:  {i["Nombre"]}
                     Apellido:  {i["Apellido"]}
@@ -133,32 +152,17 @@ def listadoCamper(ruta):
                     Acudiente:  {i["Acudiente"]}
                     Estado:  {i["Estado"]}
                     Nota:  {i["Nota"]}
-               """)
-
-def printModulo(modulo): # IMPRIMO EL MODULO LINDO
-    print(f"""
-            ----------------MODULO-------------
-            Codigo: {modulo["Codigo"]}
-            Nombre Modulo: {modulo["Nombre Modulo"]}
-            Prioridad: {modulo["Prioridad"]}
-            Temarios: {listadoTemarios(modulo)}
-            -----------------------------------
-              """)
-
-def listadoTemarios(modulo): # LISTO LOS TEMARIOS
-    texto=""
-    for i in modulo["Temarios"]:
-        texto+=f'\n\t\t     {i["Temario"]} '
-    return (texto)
+                    Nota Modulo: {i["Nota Modulo"]}
+               \033[92m""")
 
 def asigarmodulo():
     varRuta = 0
     varMod = 0
-    print("""
+    print("""\033[92m
         *************************
         * Asignar Modulo A RUTA *
         *************************
-        """)
+        \033[92m""")
     with open("programa/datosJson/ruta.json", "r") as f:
         rutas = json.loads(f.read())
         f.close()
@@ -192,11 +196,11 @@ def asigarmodulo():
             break
 
 def asignarCamper(): 
-    print("""
+    print("""\033[92m
         *************************
         * Asignar Camper a Ruta *
         *************************
-        """)
+        \033[92m""")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
         listarCamper()
@@ -219,11 +223,11 @@ def asignarCamper():
             f.close()
 
 def asignarTrainer(): 
-    print("""
+    print("""\033[92m
         *************************
         * Asignar Trainer a Ruta *
         *************************
-        """)
+        \033[92m""")
     with open("programa/datosJson/trainer.json", "r") as f:
         trainer = json.loads(f.read())
         listarTrainer()
@@ -249,7 +253,7 @@ def asignarTrainer():
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -              MENU RUTAS               -
     -----------------------------------------
@@ -261,7 +265,7 @@ def menu():
     -     6. Asignar Trainer                -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

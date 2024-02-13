@@ -6,11 +6,11 @@ from programa.camper import listarCamper
 from programa.camper import camper
 
 def guardar():
-    print("""
+    print("""\033[92m
         *******************
         * Guardar Trainer *
         *******************
-        """)
+        \033[92m""")
     info = {
         "Nro Identificacion": input("Ingrese el numero de identificacion: "),
         "Nombre completo": input("Ingrese el nombre completo: "),
@@ -52,12 +52,12 @@ def listarTrainer():
         printTrainer(trainers)
 
 def printTrainer(trainer):
-    print(f"""
+    print(f"""\033[92m
             ----------------TRAINER-------------
             Nro Identificacion: {trainer["Nro Identificacion"]}
             Nombre Completo: {trainer["Nombre completo"]}
             -----------------------------------
-              """)
+              \033[92m""")
 
 def asignarCamper():
     with open("programa/datosJson/trainer.json", "r") as f:
@@ -86,12 +86,10 @@ def asignarCamper():
             print("Camper asignado correctamente")
             break
 
-
-
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -            MENU TRAINER               -
     -----------------------------------------
@@ -100,7 +98,7 @@ def menu():
     -     3. Agregar Camper a Trainer       -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

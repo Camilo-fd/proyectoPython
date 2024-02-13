@@ -11,7 +11,7 @@ import programa.salasEntrenamiento as salasEntrenamiento
 import programa.reportes as reportes
 
 def menu():
-    print("""
+    print("""\033[94m
     -----------------------------------------
     -         MENU ADMINISTRACION           -
     -----------------------------------------
@@ -26,7 +26,7 @@ def menu():
     -     8. Reportes                       -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
 bandera = True
 while (bandera):
     menu()

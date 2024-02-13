@@ -3,6 +3,7 @@ from os import system
 from programa.camper import listarCamper
 from programa.trainer import listarTrainer
 from programa.ruta import listarRuta, listadoCamper
+from programa.reportes import camperAprovado
 from .datos import salasEntrenamiento
 
 def ingresarSalas():
@@ -45,7 +46,7 @@ def asigarRuta():
 def asignarCamper(): 
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
-        listarCamper()
+        camperAprovado()
     codCamper = input("Nro Identificacion del camper: ")
     with open("programa/datosJson/salasEntrenamiento.json", "r") as f:
         salasEntrenamiento = json.loads(f.read())
@@ -57,7 +58,14 @@ def asignarCamper():
             if campers.get("Nro Identificacion") == codCamper:
                 for salas in salasEntrenamiento:
                     if salas.get("Codigo") == codSala:
+                        if len(salas.get('Camper')) < 3:
                             salas["Camper"].append(campers)
+                            system("clear")
+                            print("Asignacion Exitosa")
+                            bandera = False
+                        else:
+                            system("clear")
+                            print("Cupo Lleno")
                             bandera = False
         with open("programa/datosJson/salasEntrenamiento.json", "w") as f:
             data = json.dumps(salasEntrenamiento, indent=4)
@@ -87,27 +95,26 @@ def asignarTrainer():
             f.close()
 
 def listarsalasEntrenamiento():
-    with open("programa/datosJson/salasEntrenamiento.json") as f:
+    with open("programa/datosJson/salasEntrenamiento.json", "r") as f:
         salasEntrenamiento = json.loads(f.read())
-        f.close()
     for salas in salasEntrenamiento:
         printsalasEntrenamiento(salas)
 
-def printsalasEntrenamiento(salasEntrenamiento): 
+def printsalasEntrenamiento(salasEntrenamiento):
     print(f"""
-            -------------Salas Entrenamiento-------------
-            Nombre Sala: {salasEntrenamiento["Nombre Sala"]}
-            Codigo: {salasEntrenamiento["Codigo"]}
-            Capacidad Maxima: {salasEntrenamiento["Capacidad Maxima"]}
-            Ruta: {salasEntrenamiento["Ruta"]}
-            Camper: {listadoCamper(salasEntrenamiento)}
-            ---------------------------------------------
-              """)
+        -------------Salas Entrenamiento-------------
+        Nombre Sala: {salasEntrenamiento["Nombre Sala"]}
+        Codigo: {salasEntrenamiento["Codigo"]}
+        Capacidad Maxima: {salasEntrenamiento["Capacidad Maxima"]}
+        Ruta: {salasEntrenamiento["Ruta"]}
+        Camper: {listadoCamper(salasEntrenamiento)}
+        ---------------------------------------------
+            """)
 
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -       MENU SALAS ENTRENAMIENTO        -
     -----------------------------------------
@@ -118,7 +125,7 @@ def menu():
     -     5. Asignar Trainer                -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

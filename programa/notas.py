@@ -5,7 +5,7 @@ from .datos import notas,camper,notasModulo
 from programa.camper import listarCamper
 import json
 
-def pruebaSeleccion():  
+def pruebaSeleccion(): 
     info = {
         "Nro Identificacion": input("Nro Identificacion Camper: "),
         "Fecha": input("Fecha: "),
@@ -26,6 +26,11 @@ def notaSeleccion():
     return promedio
 
 def asignarPrueba(): #Inicial
+    print("""\033[92m
+        **************************
+        * Asignar Prueba Inicial *
+        **************************
+        \033[92m""")
     with open("programa/datosJson/camper.json", "r") as f:
             camper = json.loads(f.read())
             f.close()
@@ -86,6 +91,11 @@ def calculosnotaModulo():
     return promedio
 
 def asignarNotamodulo():
+    print("""\033[92m
+        ***********************
+        * Asignar Nota Modulo *
+        ***********************
+        \033[92m""")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
         f.close()
@@ -98,11 +108,6 @@ def asignarNotamodulo():
     print("-----------------------------------")
     info = notaModulo()
     notasModulo.append(info)
-    with open("programa/datosJson/notasModulo.json","w") as f:
-        data = json.dumps(notasModulo, indent=4)
-        f.write(data)
-        f.close()
-        system("clear")
     for item in notasModulo:
         print("\t    ----------NOTA MODULO----------")
         for key, value in item.items():
@@ -125,7 +130,7 @@ def asignarNotamodulo():
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -             MENU NOTAS                -
     -----------------------------------------
@@ -134,7 +139,7 @@ def menu():
     -     3. Eliminar                       -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

@@ -4,11 +4,11 @@ from .datos import camper
 from .valido import menuNoValid
 
 def guardar():
-    print(f"""
-    *********************
-    *  Ingresar Camper  *
-    *********************
-    """)
+    print(f"""\033[92m
+    ***********************
+    *    Guardar Camper   *
+    ***********************
+    \033[92m""")
     while True:
         NroIdentifiacion = input("Ingrese su numero de identificacion: ")
         if NroIdentifiacion.isdigit():
@@ -67,11 +67,11 @@ def editar():
     bandera=True
     while (bandera):
         system("clear")
-        print("""
-        *****************
-        * Editar Camper *
-        *****************
-        """)
+        print(f"""\033[92m
+    **********************
+    *    Editar Camper   *
+    **********************
+    \033[92m""")
         listarCamper()
         codigo = input("Ingrese el Nro Identificacion del camper que deseas actualizar: ")
         try:
@@ -131,11 +131,11 @@ def buscar():
     system("clear")
     numr = 0
     numr = int(input("Escribe tu numero de registro: "))
-    print(f"""
-    *******************
-    *  Buscar Camper  *
-    *******************
-    """)
+    print(f"""\033[92m
+    *********************
+    *    Buscar Camper   *
+    *********************
+    \033[92m""")
         
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
@@ -171,42 +171,29 @@ def listarCamper():
          printCamper(camper)
 
 def printCamper(camper):
-    print(f"""
+    print(f"""\033[92m
             ----------------CAMPER-------------
             Nro Identificacion: {camper["Nro Identificacion"]}
             Nombre: {camper["Nombre"]}
             Apellido: {camper["Apellido"]}
             Direccion: {camper["Direccion"]}
-            Telefonos: {"".join([f"{list(camper['Telefonos'][ind].keys())[0]}: {list(camper['Telefonos'][ind].values())[0]}" for ind,val in enumerate(camper["Telefonos"])])}
+            Telefonos: {camper["Telefonos"]}
             Acudiente: {camper["Acudiente"]}
             Estado: {camper["Estado"]}
             Nota: {camper["Nota"]}
             Nota Modulo: {camper["Nota Modulo"]}
             -----------------------------------
-              """) 
-
-
-def listadoacudiente(camper):
-            for i in camper["Acudiente"]:
-                return(f"""
-                    Responsable: {i["Responsable"]}
-                      """)
-
-def listadotelefonos(camper):
-    for i in camper["Telefonos"]:
-        return(f"""
-                Telefonos: {i["Responsable"]}
-                  """)
+              \033[92m""")
     
 def borrar():
     bandera = True
     while(bandera):
         system("clear")
-        print("""
+        print("""\033[92m
         ********************
         * Eliminar Camper  *
         ********************
-        """)
+        \033[92m""")
         listarCamper()
         codigo = input("Ingrese el codigo del camper que deseas eliminar \n")
         try:
@@ -260,7 +247,7 @@ def borrar():
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -             MENU CAMPER               -
     -----------------------------------------
@@ -270,7 +257,7 @@ def menu():
     -     4. Eliminar Camper                -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:

@@ -4,6 +4,11 @@ from os import system
 from programa.valido import menuNoValid
 
 def guardarhorarios():
+    print(f"""\033[92m
+    *********************
+    *  Guardar Horario  *
+    *********************
+    \033[92m""")
     info = {
     "Nombre Jornada": input("Nombre Jornada: "),
     "Codigo": int(input("Codigo: ")),
@@ -18,7 +23,7 @@ def guardarhorarios():
 def menu():
     bandera = True
     while (bandera):
-        print("""
+        print("""\033[94m
     -----------------------------------------
     -            MENU HORARIO               -
     -----------------------------------------
@@ -26,7 +31,7 @@ def menu():
     -     1. Guardar horario                -
     -     0. Salir                          -
     -----------------------------------------
-""")
+\033[94m""")
         try:
             opc = int(input())
         except ValueError:
