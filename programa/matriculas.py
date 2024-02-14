@@ -29,20 +29,22 @@ def asignaciones():
     }
     matriculas.append(info)
     with open("programa/datosJson/matriculas.json", "w") as f:
-        json.dumps(matriculas, indent=4)
+        data = json.dumps(matriculas, indent=4)
+        f.write(data)
+        f.close()
 
 def printAsignaciones():
-    with open("programa/datosJson/matriculas.json") as f:
+    with open("programa/datosJson/matriculas.json", "r") as f:
         matriculas = json.loads(f.read())
         for matricula in matriculas:
             print("\033[92m----------------MATRICULA-------------")
-            print(f"Codigo Ruta:", matricula['Codigo Ruta'])
-            print(f"Codigo Sala: {matricula["Codigo Sala"]}")
-            print(f"Nro Identificacion Trainer: {matricula["Nro Identificacion Trainer"]}")
-            print(f"Nro Identificacion Camper: {matricula["Nro Identificacion Camper"]}")
-            print(f"Fecha Inicio: {matricula["Fecha Inicio"]}")
-            print(f"Fecha Final: {matricula["Fecha FInal"]}")
-            print(f"Codigo Horario: {matricula["NCodigo Horario"]}")
+            print(f"Codigo Rut: {matricula['Codigo Ruta']}")
+            print(f"Codigo Sala: {matricula['Codigo Sala']}")
+            print(f"Nro Identificacion Trainer: {matricula['Nro Identificacion Trainer']}")
+            print(f"Nro Identificacion Camper: {matricula['Nro Identificacion Camper']}")
+            print(f"Fecha Inicio: {matricula['Fecha Inicio']}")
+            print(f"Fecha Final: {matricula['Fecha Final']}")
+            print(f"Codigo Horario: {matricula['Codigo Horario']}")
             print("--------------------------------\033[92m")
             
 def menu():

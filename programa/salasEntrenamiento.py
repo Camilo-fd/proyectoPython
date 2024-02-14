@@ -110,7 +110,7 @@ def printsalasEntrenamiento(salasEntrenamiento):
         Nombre Sala: {salasEntrenamiento["Nombre Sala"]}
         Codigo: {salasEntrenamiento["Codigo"]}
         Capacidad Maxima: {salasEntrenamiento["Capacidad Maxima"]}
-        Ruta: {salasEntrenamiento["Ruta"]}
+        Ruta: \n\t     Nombre:{salasEntrenamiento["Ruta"][0]["Nombre Ruta"]}\n\t     Codigo: {salasEntrenamiento["Ruta"][0]["Codigo"]}  
         Camper: {camper}
         ---------------------------------------------
             """)
