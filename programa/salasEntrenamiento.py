@@ -101,13 +101,17 @@ def listarsalasEntrenamiento():
         printsalasEntrenamiento(salas)
 
 def printsalasEntrenamiento(salasEntrenamiento):
+    try:
+        camper = salasEntrenamiento["Camper"][0]["Nro Identificacion"]-salasEntrenamiento["Camper"][0]["Nombre"]-salasEntrenamiento["Camper"][0]["Apellido"]
+    except IndexError:
+        camper = ""
     print(f"""
         -------------Salas Entrenamiento-------------
         Nombre Sala: {salasEntrenamiento["Nombre Sala"]}
         Codigo: {salasEntrenamiento["Codigo"]}
         Capacidad Maxima: {salasEntrenamiento["Capacidad Maxima"]}
         Ruta: {salasEntrenamiento["Ruta"]}
-        Camper: {salasEntrenamiento["Camper"][0]["Nro Identificacion"]}-{salasEntrenamiento["Camper"][0]["Nombre"]} {salasEntrenamiento["Camper"][0]["Apellido"]}
+        Camper: {camper}
         ---------------------------------------------
             """)
 

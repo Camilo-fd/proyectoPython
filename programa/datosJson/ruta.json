@@ -1,1 +1,58 @@
-[]
+[
+    {
+        "Codigo": "F01",
+        "Nombre Ruta": "NetCore",
+        "Modulo": [
+            {
+                "Codigo": "01",
+                "Nombre Modulo": "Fundamentos de programaci\u00f3n",
+                "Prioridad": "ALTA",
+                "Temarios": [
+                    {
+                        "Temario": "Introducci\u00f3n a la algoritmia"
+                    },
+                    {
+                        "Temario": "PSeInt"
+                    },
+                    {
+                        "Temario": "Python"
+                    }
+                ]
+            },
+            {
+                "Codigo": "02",
+                "Nombre Modulo": "Programacion Web",
+                "Prioridad": "Alta",
+                "Temarios": [
+                    {
+                        "Temario": "HTML"
+                    },
+                    {
+                        "Temario": "CSS"
+                    },
+                    {
+                        "Temario": "BOOTSTRAP"
+                    }
+                ]
+            },
+            {
+                "Codigo": "03",
+                "Nombre Modulo": "Bases de datos",
+                "Prioridad": "ALTA",
+                "Temarios": [
+                    {
+                        "Temario": "Mysql"
+                    },
+                    {
+                        "Temario": "Mysql"
+                    },
+                    {
+                        "Temario": "Postgresql"
+                    }
+                ]
+            }
+        ],
+        "Camper": [],
+        "Trainer": []
+    }
+]

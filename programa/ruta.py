@@ -191,7 +191,7 @@ def asigarmodulo():
         elif opc == 2:
             system("clear")
             print("Modulo asignado correctamente")
-            break
+        break
 
 def asignarCamper(): 
     print("""\033[92m

@@ -9,6 +9,8 @@ import programa.modulo as modulo
 import programa.horario as horario
 import programa.salasEntrenamiento as salasEntrenamiento
 import programa.reportes as reportes
+import programa.matriculas as matriculas
+
 
 def menu():
     print("""\033[94m
@@ -24,6 +26,7 @@ def menu():
     -     6. Horarios                       -
     -     7. Salas Entrenamiento            -
     -     8. Reportes                       -
+    -     9. Matriculas                     -
     -     0. Salir                          -
     -----------------------------------------
 \033[94m""")
@@ -89,6 +92,12 @@ while (bandera):
                 system("clear")
                 reportes.menu()
                 system("clear")
+        case 9:
+            with open("programa/datosJson/salasEntrenamiento.json", "r") as f:
+                matriculas.matriculas = json.loads(f.read())
+                f.close()
+                system("clear")
+                matriculas.menu()
         case 0:
             bandera = False
         case _:

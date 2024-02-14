@@ -14,6 +14,7 @@ def guardar():
     info = {
         "Nro Identificacion": input("Ingrese el numero de identificacion: "),
         "Nombre completo": input("Ingrese el nombre completo: "),
+        "Horario": input("\n!Colocar la hora completa!\n----HORARIO----\n1. 6:00am - 10:00am\n2. 10:15am -2:00pm\n3. 2:00pm - 6:00pm\n4. 6:00pm - 10:00pm\n"),
         "Camper": []
     }
     trainer.append(info)
@@ -56,6 +57,7 @@ def printTrainer(trainer):
             ----------------TRAINER-------------
             Nro Identificacion: {trainer["Nro Identificacion"]}
             Nombre Completo: {trainer["Nombre completo"]}
+            Horario: {trainer["Horario"]}
             -----------------------------------
               \033[92m""")
 

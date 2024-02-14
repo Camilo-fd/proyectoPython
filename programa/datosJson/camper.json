@@ -7,12 +7,12 @@
         "Celular": "3005452669",
         "Fijo": "",
         "Acudiente": "",
-        "Estado": "Inscrito",
+        "Estado": "Aprovado",
         "Nota": [
             {
                 "Nro Identificacion": "101",
-                "Fecha": "12/02",
-                "Nota": 81
+                "Fecha": "23",
+                "Nota": 93
             }
         ],
         "Nota Modulo": [
@@ -20,8 +20,8 @@
                 "Nro Identificacion": "101",
                 "modul": null,
                 "Codigo": "01",
-                "Total": 87,
-                "Fecha": "12/2024",
+                "Total": 99,
+                "Fecha": "30",
                 "Nro Identificaion Trainer": "0000"
             }
         ]
@@ -34,15 +34,24 @@
         "Celular": "3214562345",
         "Fijo": "64521385",
         "Acudiente": "",
-        "Estado": "Inscrito",
+        "Estado": "En Riesgo",
         "Nota": [
             {
                 "Nro Identificacion": "102",
-                "Fecha": "23/04",
-                "Nota": 71
+                "Fecha": "99",
+                "Nota": 100
             }
         ],
-        "Nota Modulo": []
+        "Nota Modulo": [
+            {
+                "Nro Identificacion": "102",
+                "modul": null,
+                "Codigo": "01",
+                "Total": 46,
+                "Fecha": "20",
+                "Nro Identificaion Trainer": "0000"
+            }
+        ]
     },
     {
         "Nro Identificacion": "103",
@@ -56,10 +65,22 @@
         "Nota": [
             {
                 "Nro Identificacion": "103",
-                "Fecha": "31/12",
-                "Nota": 92
+                "Fecha": "24",
+                "Nota": 80
             }
         ],
+        "Nota Modulo": []
+    },
+    {
+        "Nro Identificacion": "104",
+        "Nombre": "Juan",
+        "Apellido": "Maldonado",
+        "Direccion": "Diagonal 4",
+        "Celular": "300542136",
+        "Fijo": "",
+        "Acudiente": "Nicolas",
+        "Estado": "Pre inscrito",
+        "Nota": [],
         "Nota Modulo": []
     }
 ]

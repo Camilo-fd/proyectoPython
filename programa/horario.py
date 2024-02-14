@@ -11,7 +11,7 @@ def guardarhorarios():
     \033[92m""")
     info = {
     "Nombre Jornada": input("Nombre Jornada: "),
-    "Codigo": int(input("Codigo: ")),
+    "Codigo": input("Codigo: "),
     "Hora": input("Hora: ")
 }
     horario.append(info)

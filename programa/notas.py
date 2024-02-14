@@ -95,15 +95,14 @@ def asignarNotamodulo():
         \033[92m""")
     with open("programa/datosJson/camper.json", "r") as f:
         camper = json.loads(f.read())
-        f.close()
-        listarCamper()
+    listarCamper()
     codigoCamper = input("Nro Identificacion del camper: ")
     with open("programa/datosJson/notasModulo.json", "r") as f:
         notasModulo = json.loads(f.read())
-        f.close()
     print("                                   ")
     print("-----------------------------------")
     info = notaModulo()
+    system("clear")
     for item in notasModulo:
         print("\t    ----------NOTA MODULO----------")
         for key, value in item.items():
@@ -112,13 +111,15 @@ def asignarNotamodulo():
     for campers in camper:
             if campers.get("Nro Identificacion") == codigoCamper:
                 campers["Nota Modulo"].append(info)
-                for notas in notasModulo:
-                    if notas.get("Nro Identificacion") == codigoCamper:
-                        campers["Nota Modulo"].append(notasModulo)
-                        if notas["Total"] >= 60:
-                            campers["Estado"] = "Aprovado"
-                        else:
-                            campers["Estado"] = "En Riesgo"
+                # for notas in notasModulo:
+                #     if notas.get("Nro Identificacion") == codigoCamper:
+                #         campers["Nota Modulo"].append(notasModulo)
+                if info["Total"] >= 60:
+                    campers["Estado"] = "Aprovado"
+                elif info["Total"] < 60:
+                    campers["Estado"] = "En Riesgo"
+                # elif campers["Estado"] == "En Riesgo" and info["Total"] >= 60:
+                #         campers["Estado"] = "En Riesgo"
     with open("programa/datosJson/camper.json", "w") as f:
         campers = json.dumps(camper, indent=4)
         f.write(campers)
@@ -126,7 +127,7 @@ def asignarNotamodulo():
     with open("programa/datosJson/notasModulo.json", "w") as f:
         nota = json.dumps(notasModulo, indent=4)
         f.write(nota)
-        f.close()
+
 
 def menu():
     bandera = True
