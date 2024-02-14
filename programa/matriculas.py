@@ -5,6 +5,7 @@ from programa.ruta import listarRuta
 from programa.salasEntrenamiento import listarsalasEntrenamiento
 from programa.trainer import listarTrainer
 from programa.camper import listarCamper
+from programa.horario import prinHorario
 
 def asignaciones():
     print(f"""\033[92m
@@ -23,14 +24,27 @@ def asignaciones():
         "Nro Identificacion Camper": input("Nro Identificacion Camper: "),
         "Fecha Inicio": input("Fecha Inicio: "),
         "Fecha Final": input("Fecha Final: "),
+        "lisHorario": prinHorario(),
         "Codigo Horario": input("Codigo Horario: ")
     }
     matriculas.append(info)
     with open("programa/datosJson/matriculas.json", "w") as f:
-        data = json.loads(matriculas, ident=4)
-        f.write(data)
-        f.close()
+        json.dumps(matriculas, indent=4)
 
+def printAsignaciones():
+    with open("programa/datosJson/matriculas.json") as f:
+        matriculas = json.loads(f.read())
+        for matricula in matriculas:
+            print("\033[92m----------------MATRICULA-------------")
+            print(f"Codigo Ruta:", matricula['Codigo Ruta'])
+            print(f"Codigo Sala: {matricula["Codigo Sala"]}")
+            print(f"Nro Identificacion Trainer: {matricula["Nro Identificacion Trainer"]}")
+            print(f"Nro Identificacion Camper: {matricula["Nro Identificacion Camper"]}")
+            print(f"Fecha Inicio: {matricula["Fecha Inicio"]}")
+            print(f"Fecha Final: {matricula["Fecha FInal"]}")
+            print(f"Codigo Horario: {matricula["NCodigo Horario"]}")
+            print("--------------------------------\033[92m")
+            
 def menu():
     bandera = True
     while (bandera):
@@ -40,6 +54,7 @@ def menu():
     -----------------------------------------
     -   Sistema de almacenamiento de datos  -
     -     1. asignaciones                   -
+    -     2. listar asignaciones            -
     -     0. Salir                          -
     -----------------------------------------
 \033[94m""")
@@ -52,3 +67,7 @@ def menu():
             case 1:
                 system("clear")
                 asignaciones()
+            case 2:
+                printAsignaciones()
+            case 0:
+                bandera = False

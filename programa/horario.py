@@ -20,6 +20,26 @@ def guardarhorarios():
         f.write(data)
         f.close()
 
+def prinHorario():
+    with open("programa/datosJson/horario.json") as f:
+        horario = json.loads(f.read())
+    for horarios in horario:
+    # try:
+    #     nota = camper["Nota"][0]["Nota"]
+    # except IndexError:
+    #     nota = ""
+    # try:
+    #     notaModulo = camper["Nota Modulo"][0]["Total"]
+    # except IndexError:
+    #     notaModulo = ""
+        print(f"""\033[92m
+            ----------------CAMPER-------------
+            Nombre Jornada: {horarios["Nombre Jornada"]}
+            Codigo: {horarios["Codigo"]}
+            Hora: {horarios["Hora"]}
+            -----------------------------------
+              \033[92m""")
+
 def menu():
     bandera = True
     while (bandera):
@@ -29,6 +49,7 @@ def menu():
     -----------------------------------------
     -   Sistema de almacenamiento de datos  -
     -     1. Guardar horario                -
+    -     2. Buscar horario                 -
     -     0. Salir                          -
     -----------------------------------------
 \033[94m""")
@@ -40,6 +61,8 @@ def menu():
         match(opc):
             case 1:
                 guardarhorarios()
+            case 2:
+                prinHorario()
             case 0:
                 bandera = False
             case _:

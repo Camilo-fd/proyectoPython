@@ -1,0 +1,24 @@
+[
+    {
+        "Nombre Sala": "APOLO",
+        "Codigo": "33",
+        "Capacidad Maxima": "33",
+        "Ruta": [],
+        "Camper": [],
+        "Trainer": []
+    },
+    {
+        "lisRuta": null,
+        "Codigo Ruta": "F01",
+        "lisSala": null,
+        "Codigo Sala": "33",
+        "lisTrainer": null,
+        "Nro Identificacion Trainer": "0001",
+        "lisCamper": null,
+        "Nro Identificacion Camper": "102",
+        "Fecha Inicio": "12",
+        "Fecha Final": "23",
+        "lisHorario": null,
+        "Codigo Horario": "AM"
+    }
+]
